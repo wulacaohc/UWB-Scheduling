@@ -1,7 +1,7 @@
 <template xmlns:el-col="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
   <div>
     <el-container style="height:100vh;width:100vw;border:1px ;solid:#eee">
-      <el-aside width="200px" style="background-color: #eee">
+      <el-aside width="200px" style="background-color: #363636">
         <Aside/>
       </el-aside>
       <el-container class="header-and-main">
@@ -59,17 +59,12 @@
               </el-button>
             </el-col>
           </div>
-          <div style="font-weight: bold;font-size:26px;color:#4F4F4F;margin:3vh">
-
-            任务情况
-            <el-input style="margin-left:45vw;width:260px;" placeholder="请输入姓名或工号" v.model="params.task"></el-input>
-            <el-button title="" style="margin-left:5px;background-color: #4F4F4F;color: white;"  >
-              <i class="el-icon-search" ></i>  搜索</el-button>
-          </div>
-
           <div style="margin:3vh">
             <el-card>
-              <el-table :data="tableData" :row-class-name="tableRowClassName"  stripe>
+              <div style="font-weight: bold;font-size:26px;color:#4F4F4F;margin:3vh">
+                任务情况
+              </div>
+              <el-table :data="tableData" stripe>
                 <el-table-column prop="name" label="任务名称"></el-table-column>
                 <el-table-column prop="formattedArrivalTime" label="任务等待时间"></el-table-column>
                 <el-table-column prop="labelCount" label="物料数量"></el-table-column>

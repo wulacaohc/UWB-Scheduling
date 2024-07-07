@@ -1,10 +1,11 @@
 <template>
-<div class="header" style="border-bottom: 1px solid lightgrey;height:60px">
+<div class="header" style="border-bottom: 1px solid lightgrey;height:65px">
   <div class="right" style="margin-top:2vh;">
+    <el-button style="margin-right:2vw;background-color: #4F4F4F;color: white">返回数据大屏</el-button>
     <div class="user" style="padding-right:1vw">
        <el-dropdown style="margin-top:1vh;">
           <span class="el-dropdown-link">
-             <img src="../image/user.png" alt="" style="height:6vh;border-radius:50%;">
+             <img src="../image/img.png" alt="" style="height:6vh;">
           </span>
        <el-dropdown-menu slot="dropdown">
          <el-dropdown-item>
@@ -19,10 +20,9 @@
         </el-dropdown-menu>
       </el-dropdown>
     </div>
-    <div class="info" style="margin-left:4vw;">
-      <i class="el-icon-setting" style="font-size: 30px;color:gray"></i>
-      <i class="el-icon-bell" style="font-size: 30px;margin-left: 2vw;color:gray"></i>
-    </div>
+<!--      <span @click="drawer = true" type="primary" style="margin-left: 16px;">-->
+<!--        <i class="el-icon-bell" style="font-size:30px;color:gray;font-weight:bold"></i>-->
+<!--      </span>-->
   </div>
 </div>
 </template>

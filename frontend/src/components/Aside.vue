@@ -3,7 +3,7 @@
     <div class="logo-container" slot="top">
       <img src="../image/logo.png" alt="">
     </div>
-    <span style="color:#0F4264;padding-left:1vw;font-size:16px;">铜杆车间调度系统平台</span>
+    <span style="color:#E1FFFF;padding-left:1vw;font-size:16px;margin-bottom: 3vh">铜杆车间调度系统平台</span>
      <el-menu default-active="activeIndex" class="el-menu-vertical-demo" width="500px"
             background-color="#363636" text-color="white" active-text-color="#ffd04b" router>
         <el-menu-item index="/back/map">
