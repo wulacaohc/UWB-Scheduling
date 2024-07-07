@@ -10,6 +10,7 @@ import BackView from '../views/Login/back.vue'
 import MapView from '../views/Map/map.vue'
 import SecurityView from '../views/Security/security.vue'
 import TaskView from '../views/Task/task.vue'
+import CalenderView from '../views/staffManagement/StaffView.vue'
 
 Vue.use(VueRouter)
   //  entrance与login同级路由，基础路由配置
@@ -33,6 +34,11 @@ const routes = [
         path:'staff',
         name:'staff',
         component: StaffView
+      },
+      {
+        path:'staCalender',
+        name:'staCalender',
+        component: CalenderView
       },
       {
         path:'car',

@@ -5,28 +5,26 @@
     </div>
     <span style="color:#0F4264;padding-left:1vw;font-size:16px;">铜杆车间调度系统平台</span>
      <el-menu default-active="activeIndex" class="el-menu-vertical-demo" width="500px"
-            background-color="#eee" text-color="#545c64" active-text-color="#ffd04b" router>
-<!-- 默认高亮第一栏-->
+            background-color="#363636" text-color="white" active-text-color="#ffd04b" router>
         <el-menu-item index="/back/map">
-          <i class="el-icon-location"></i>
-          <span>三维地图</span>
+          <span style="text-decoration-color: white"><i class="el-icon-location" ></i>三维地图</span>
         </el-menu-item>
-        <el-menu-item index="/back/staff">
-          <i class="el-icon-menu"></i>
-          <span slot="title">人员管理</span>
-        </el-menu-item>
+       <el-submenu index="2">
+         <template slot="title">
+           <span slot="title"><i class="el-icon-files"></i>人员管理</span>
+         </template>
+         <el-menu-item index="/back/staff">人员列表</el-menu-item>
+         <el-menu-item index="/back/staCalender">考勤日历</el-menu-item>
+       </el-submenu>
         <el-menu-item index="/back/task" >
-         <i class="el-icon-document"></i>
-         <span slot="title">任务发布</span>
+         <span slot="title"><i class="el-icon-document"></i>任务发布</span>
         </el-menu-item>
         <el-menu-item index="/back/security">
-          <i class="el-icon-setting"></i>
-          <span slot="title">安全预警</span>
+          <span slot="title"><i class="el-icon-setting"></i>安全预警</span>
         </el-menu-item>
         <el-submenu index="5">
           <template slot="title">
-          <i class="el-icon-files"></i>
-          <span slot="title">行车设备管理</span>
+          <span slot="title"><i class="el-icon-files"></i>行车设备管理</span>
           </template>
           <el-menu-item index="/back/car">行车管理</el-menu-item>
           <el-menu-item index="/back/device">设备管理</el-menu-item>

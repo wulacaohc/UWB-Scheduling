@@ -1,11 +1,11 @@
 <template>
   <div>
     <el-container style="height:100vh;width:100vw;border:1px;solid:#eee">
-      <el-aside width="200px" style="background-color: #eee">
+      <el-aside width="200px" style="background-color: #363636">
         <Aside/>
       </el-aside>
       <el-container class="header-and-main">
-        <el-header>
+        <el-header style="height:80px">
           <Head/>
         </el-header>
         <el-main  class="main" style="margin-top: 4vh">

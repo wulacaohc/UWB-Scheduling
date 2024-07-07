@@ -10,6 +10,7 @@
     <update id="updateMachine">
         update machine set labelid = #{labelId},machinename=#{machineName},
                            machinetype=#{machineType},machinestatus=#{machineStatus},materialid=#{materialId}
+        where machineid = #{machineId}
     </update>
 
     <delete id="deleteMachine">

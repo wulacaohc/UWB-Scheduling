@@ -1,15 +1,15 @@
 <template>
   <div>
     <el-container style="height:100vh;width:100vw;border:1px;solid:#eee">
-      <el-aside width="200px" style="background-color: #eee">
+      <el-aside width="200px" style="background-color: #363636">
         <Aside/>
       </el-aside>
       <el-container class="header-and-main">
-        <el-header>
+        <el-header style="height:80px">
           <Head/>
         </el-header>
-        <el-main  class="main" style="margin-top: 4vh">
-          <div >
+        <el-main  class="main" >
+          <div>
             <!--搜索框-->
             <div>
               <div style="margin-bottom: 4vh;margin-top:4vh;">
@@ -87,7 +87,7 @@ export default {
       total:0,
       params:{
         pageNum:1,
-        pageSize:8,//向后台发送数据
+        pageSize:7,//向后台发送数据
         employeeName:""
       }
 
