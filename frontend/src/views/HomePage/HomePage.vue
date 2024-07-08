@@ -16,7 +16,9 @@
         </dv-border-box-13>
       </div>
       <div class="cell">
-        <dv-border-box-8></dv-border-box-8>
+        <dv-border-box-8>
+<!--            <mapView></mapView>-->
+        </dv-border-box-8>
       </div>
       <div class="cell">
         <dv-border-box-13><ScrollBoard /></dv-border-box-13>
@@ -43,6 +45,7 @@ import ScrollBoard from "@/components/ScrollBoard.vue";
 import pieChart from "@/components/pieChart.vue";
 import column from "@/components/column.vue"
 import number from "@/components/number.vue"
+import mapView from "@/views/Map/mapView.vue";
 import {defineComponent} from "vue";
 
 export default defineComponent({
@@ -51,7 +54,8 @@ export default defineComponent({
     ScrollBoard,
     pieChart,
     column,
-    number
+    number,
+    mapView
   },
   methods:{
     coming(){
@@ -76,7 +80,7 @@ export default defineComponent({
   width: 100%;
   height: 50%;
   display: flex;
-  margin: 5px;
+  margin-bottom: 5px;
   .cell {
     padding: 1vw;
     /* 旁边两列各占1份，中间列占2份 */
@@ -89,7 +93,7 @@ export default defineComponent({
 .row2{
   width: 100%;
   height:45%;
-  display: flex;
+  display:flex;
   margin:5px;
   .cell{
     padding:5px;

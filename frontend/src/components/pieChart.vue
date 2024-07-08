@@ -1,5 +1,8 @@
 <template>
-  <div style="height:300px" id="pie"></div>
+  <div class="box">
+    <div class="box__header">车间员工概况</div>
+    <div style="height:300px" id="pie"></div>
+  </div>
 </template>
 
 <script>
@@ -8,7 +11,7 @@ import * as echarts from 'echarts';
 const option = {
   // backgroundColor: '#2c343c',
   title: {
-    text: 'Customized Pie',
+    text: '车间设备概况',
     left: 'center',
     top: 20,
     textStyle: {
@@ -33,11 +36,11 @@ const option = {
       radius: '55%',
       center: ['50%', '50%'],
       data: [
-        { value: 335, name: 'Direct' },
-        { value: 310, name: 'Email' },
-        { value: 274, name: 'Union Ads' },
-        { value: 235, name: 'Video Ads' },
-        { value: 400, name: 'Search Engine' }
+        { value: 335, name: '热轧机组' },
+        { value: 310, name: '退火炉' },
+        { value: 274, name: '冷轧机' },
+        { value: 235, name: '铳洗机组'},
+        { value: 400, name: '镕铸炉' }
       ].sort(function (a, b) {
         return a.value - b.value;
       }),
@@ -77,5 +80,14 @@ export default {
 </script>
 
 <style>
+.box{
+  padding:10px;
+  height:90%;
+  .box__header{
+    margin-bottom:20px;
+    font-size:20px;
+    color:white;
+  }
+}
 
 </style>

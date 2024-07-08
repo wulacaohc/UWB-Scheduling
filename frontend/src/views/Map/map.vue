@@ -1,10 +1,10 @@
 <template xmlns:el-col="http://www.w3.org/1999/xhtml">
   <div>
     <el-container style="height:100vh;width:100vw;border:1px;solid:#eee">
-      <el-aside width="200px" style="background-color: #eee">
+      <el-aside width="200px" style="background-color: #363636">
         <Aside/>
       </el-aside>
-      <el-container>
+      <el-container class="header-and-main">
         <el-header>
           <Head/>
         </el-header>
