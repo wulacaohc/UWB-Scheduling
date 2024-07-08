@@ -1,9 +1,9 @@
 package com.example.backend.huawei.demo.device;
 
+import com.example.backend.common.JDBCUtil;
 import com.example.backend.huawei.demo.auth.Authentication;
 import com.example.backend.huawei.util.Constants;
 import com.example.backend.huawei.util.HttpUtils;
-import com.example.backend.huawei.util.JDBCUtil;
 import com.example.backend.huawei.util.StreamClosedHttpResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -17,14 +17,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 
 public class QueryDeviceList {
     //当程序开启后，每分钟拿取一次数据不间断。
     public static void main(String[] args) throws NoSuchAlgorithmException, KeyManagementException, IOException, URISyntaxException {
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        executorService.scheduleAtFixedRate(() ->{
+//        executorService.scheduleAtFixedRate(() ->{
             JDBCUtil jdbc=new JDBCUtil();
             String token = null;
             try {
@@ -77,7 +76,7 @@ public class QueryDeviceList {
 //        if(statusstr.equals("OFFLINE")) System.out.println("设备离线");
 //        else if (statusstr.equals("ONLINE")) System.out.println("设备在线");
 
-        //存入人的坐标
+      //存入人的坐标
         ObjectMapper objectMapper = new ObjectMapper();
             JsonNode jsonNode = null;
             try {
@@ -131,7 +130,7 @@ public class QueryDeviceList {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        }, 0, 1, TimeUnit.MINUTES);
+//        }, 0, 1, TimeUnit.MINUTES);
     }
 }
 

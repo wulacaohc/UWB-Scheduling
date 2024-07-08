@@ -23,6 +23,10 @@ public class Scheduler{
         runTimeMap.put("A",60);
         runTimeMap.put("B",30);
         runTimeMap.put("C",30);
+        runTimeMap.put("D",30);
+        runTimeMap.put("E",30);
+        runTimeMap.put("F",30);
+        runTimeMap.put("G",30);
         for (Map.Entry<String, Integer> entry : runTimeMap.entrySet()) {
             String taskName = entry.getKey();
             long currentTime = System.currentTimeMillis(); // 每次添加任务前获取当前时间

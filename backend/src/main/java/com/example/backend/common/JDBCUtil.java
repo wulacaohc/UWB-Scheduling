@@ -1,4 +1,4 @@
-package com.example.backend.huawei.util;
+package com.example.backend.common;
 
 import java.sql.*;
 

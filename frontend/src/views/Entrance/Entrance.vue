@@ -1,10 +1,8 @@
 <template>
   <!--    入口-->
   <div class="back-entrance">
-
-
-    <div :style="style1" class="Entrancelogo" >
-      <img  style="width:150px;margin-top:14vh;margin-left:-2vh" src="../../image/logo.png" alt=""  >
+    <div :style="style1" class="Entrancelogo">
+      <img  style="width:150px;margin-top:14vh;margin-left:-2vh" src="../../image/logo.png" alt="">
     </div>
 
     <div :style="style2" class="Entrancebigbox" >

@@ -19,6 +19,7 @@ com\example\backend\Service\warningService.class
 com\example\backend\demos\web\BasicController.class
 com\example\backend\huawei\pojo\product\AddProduct.class
 com\example\backend\BackendApplication.class
+com\example\backend\common\MqttDemo$3.class
 com\example\backend\huawei\pojo\auth\ScopeDTO.class
 com\example\backend\Exception\ServiceException.class
 com\example\backend\Entity\Car.class
@@ -44,12 +45,14 @@ com\example\backend\huawei\util\StreamClosedHttpResponse.class
 com\example\backend\huawei\pojo\auth\AccessTokenDTO.class
 com\example\backend\Controller\SchedulerController.class
 com\example\backend\huawei\demo\product\CreateProductByAK.class
+com\example\backend\common\MqttDemo$1.class
 com\example\backend\Mapper\MachineMapper.class
 com\example\backend\Service\EmployeeService.class
 com\example\backend\huawei\pojo\product\ServiceCapability.class
 com\example\backend\Controller\dto\Logindto.class
 com\example\backend\huawei\demo\product\QueryProductList.class
 com\example\backend\huawei\demo\product\QueryProductListByAK.class
+com\example\backend\common\MqttDemo$2.class
 com\example\backend\huawei\util\HttpUtils$1.class
 com\example\backend\huawei\demo\product\CreateProduct.class
 com\example\backend\Controller\EmployeeController.class
@@ -60,6 +63,7 @@ com\example\backend\huawei\pojo\product\Response.class
 com\example\backend\Service\Impl\warningServiceImpl.class
 com\example\backend\Controller\warningController.class
 com\example\backend\huawei\pojo\auth\DomainDTO.class
+com\example\backend\common\MqttDemo.class
 com\example\backend\huawei\pojo\product\ResponseParam.class
 com\example\backend\common\Result.class
 com\example\backend\huawei\pojo\device\AddDevice.class
