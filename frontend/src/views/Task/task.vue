@@ -8,6 +8,7 @@
         <el-header>
           <Head/>
         </el-header>
+
         <el-main  class="main" style="margin-top: 2vh">
           <div style="border-bottom:1px solid gray;width:80vw;height:36vh;padding-left:15px;padding-right:5px;">
             <el-col :span="6" class="btn">
@@ -64,15 +65,18 @@
                 <el-row :gutter="12">
                 <el-col :span="5" style="font-weight: bold;font-size:26px;color:#4F4F4F;margin:3vh">任务情况</el-col>
                 <el-col :span="7">
+
                   <el-card>
                     <div style="font-weight: bold;font-size:26px;color:#4F4F4F;margin:3vh">
                     任务情况：{{ taskname }}
                     </div>
                   </el-card>
+
                 </el-col>
                 <el-col :span="7">
                   <el-button @click="handleshow()">任务调度</el-button>
                 </el-col>
+
                 </el-row>
               <el-table :data="tableData" stripe>
                 <el-table-column prop="name" label="任务名称"></el-table-column>

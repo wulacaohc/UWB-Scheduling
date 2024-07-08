@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController//接口用于访问资源
 @SpringBootApplication
 @EnableScheduling
-public class BackendApplication {
+public class
+BackendApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BackendApplication.class, args);

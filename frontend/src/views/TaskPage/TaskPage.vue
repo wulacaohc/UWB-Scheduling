@@ -390,7 +390,7 @@ export default {
             width:12vw;
             height: 10vh;
             margin-top: 22vh;
-            margin-left: 0vh;
+            
               .qxx3{
                 width:12vw;
                 height: 10vh;
