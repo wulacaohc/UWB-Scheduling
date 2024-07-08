@@ -8,7 +8,6 @@
         <el-header>
           <Head/>
         </el-header>
-
         <el-main  class="main" style="margin-top: 2vh">
           <div style="border-bottom:1px solid gray;width:80vw;height:36vh;padding-left:15px;padding-right:5px;">
             <el-col :span="6" class="btn">
@@ -61,7 +60,6 @@
             </el-col>
           </div>
           <div style="margin:3vh">
-            <button style="margin-left:150vh" @click="refreshData" >刷新数据</button>
             <el-card>
               <div style="font-weight: bold;font-size:26px;color:#4F4F4F;margin:3vh">
                 任务情况
@@ -90,15 +88,14 @@
       </el-container>
     </el-container>
   </div>
-
 </template>
-
 <script>
 
 import {defineComponent} from "vue";
 import Aside from "@/components/Aside.vue";
 import Head from "@/components/Head.vue";
 import request from "@/utils/request";
+
 
 export default {
   components: {Head, Aside, request},
@@ -110,20 +107,20 @@ export default {
     }
   },
 
-  methods: {
-    async refreshData(){
-      try{
-        const res = await request.get('/scheduler/task-priorities');
-        this.tableData = res.data;
 
-      } catch (error) {
-        console.log(error);
-      }
-    }
+  methods: {
+    load(){   //查询数据的方法，fetch是查询后台数据的api，获取并格式转换，出现跨域错误
+      request.get('/scheduler/task-priorities',{
+        params:this.params
+      }).then(res =>{
+        this.tableData = res.data
+
+      })
+    },
 
   },
-  mounted(){
-    this.refreshData();
+  created(){
+    this.load()//方法调用
   },
 
 }

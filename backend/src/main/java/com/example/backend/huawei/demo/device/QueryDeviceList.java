@@ -19,6 +19,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+
 public class QueryDeviceList {
     //当程序开启后，每分钟拿取一次数据不间断。
     public static void main(String[] args) throws NoSuchAlgorithmException, KeyManagementException, IOException, URISyntaxException {
@@ -35,11 +36,10 @@ public class QueryDeviceList {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
             String project_id = "840b5077cd664026a40a9b12704c426d";
-        String device_id = "6672a2ca7dbfd46fabc1076e_860059074965505";
-        //String url = Constants.DEVICE_COMMAND_URL;        //查询设备
-        String url =Constants.DEVICE_SHADOW_URL;            //查询设备影子
+        String device_id = "668924855830dc113ecb2cda_860059074965505";
+        String url = Constants.DEVICE_COMMAND_URL;        //查询设备
+//        String url =Constants.DEVICE_SHADOW_URL;            //查询设备影子
         url = String.format(url, project_id, device_id);
 
         Map<String, String> header = new HashMap<String, String>();
@@ -134,3 +134,4 @@ public class QueryDeviceList {
         }, 0, 1, TimeUnit.MINUTES);
     }
 }
+
