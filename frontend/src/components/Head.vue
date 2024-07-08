@@ -1,7 +1,7 @@
 <template>
 <div class="header" style="border-bottom: 1px solid lightgrey;height:65px">
   <div class="right" style="margin-top:2vh;">
-    <el-button style="margin-right:2vw;background-color: #4F4F4F;color: white">返回数据大屏</el-button>
+    <el-button style="margin-right:2vw;background-color: #4F4F4F;color: white" @click="backing">返回数据大屏</el-button>
     <div class="user" style="padding-right:1vw">
        <el-dropdown style="margin-top:1vh;">
           <span class="el-dropdown-link">
@@ -36,7 +36,9 @@ export default {
   },
   methods: {
     ...mapMutations('user', ['setUser']),
-
+    backing(){
+      this.$router.push("/back/homePage");
+    },
     logout() {
       localStorage.removeItem("user");
       this.setUser({
@@ -47,6 +49,7 @@ export default {
       this.$router.push('/login');
     },
   },
+
   created() {
     console.log(this.userinfo)
     const user = JSON.parse(localStorage.getItem("user"));

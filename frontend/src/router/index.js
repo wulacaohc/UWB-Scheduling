@@ -18,11 +18,6 @@ Vue.use(VueRouter)
   //  entrance与login同级路由，基础路由配置
 const routes = [
   {
-    path: '/homepage',
-    name: 'homepage',
-    component:  HomePageView
-  },
-  {
     path: '/',
     name: 'entrance',
     component: EntranceView
@@ -38,6 +33,12 @@ const routes = [
     component:BackView,
     children:[
       {
+        path: 'homepage',
+        name: 'homepage',
+        component:  HomePageView
+      },
+      {
+
         path:'staff',
         name:'staff',
         component: StaffView
