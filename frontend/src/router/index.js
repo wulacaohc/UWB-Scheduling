@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import HomePageView from '../views/HomePage/HomePage.vue'
 import EntranceView from '../views/Entrance/Entrance.vue'
 import LoginView from '../views/Login/Login.vue'
 import StaffView from '../views/staffManagement/Staff.vue'
@@ -12,9 +13,15 @@ import SecurityView from '../views/Security/security.vue'
 import TaskView from '../views/Task/task.vue'
 import CalenderView from '../views/staffManagement/StaffView.vue'
 
+
 Vue.use(VueRouter)
   //  entrance与login同级路由，基础路由配置
 const routes = [
+  {
+    path: '/homepage',
+    name: 'homepage',
+    component:  HomePageView
+  },
   {
     path: '/',
     name: 'entrance',
