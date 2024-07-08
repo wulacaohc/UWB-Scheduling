@@ -36,10 +36,10 @@ export default {
       this.scene.background = texture;
 
       this.camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 20, 1000);
-      this.camera.position.set(0, 250, 100);
+      this.camera.position.set(0, 250, 50);
       this.camera.lookAt(0, 0, 0);
 
-      this.renderer = new THREE.WebGLRenderer({antialias: true});
+      this.renderer = new THREE.WebGLRenderer({antialias: true,alpha:true});
       this.renderer.setSize(window.innerWidth, window.innerHeight);
       this.$refs.container.appendChild(this.renderer.domElement);
 
@@ -63,33 +63,33 @@ export default {
       const gltfLoader = new GLTFLoader();
       const scene = this.scene; // 将this.scene存储在局部变量以供内部函数访问
 
-      gltfLoader.load("/module/map.glb", (gltf1) => {
+      gltfLoader.load("/module/map1.glb", (gltf1) => {
         const baseModel = gltf1.scene;
-        baseModel.position.set(-80, 0, 0);
+        baseModel.position.set(-180, 0, -80);
         scene.add(baseModel);
         // 逆时针旋转90°
         gltf1.scene.rotation.y = Math.PI / 2; // 绕Y轴旋转
 
         gltfLoader.load("/module/car2.glb", (gltf2) => {
           const movingModel = gltf2.scene;
-          movingModel.position.set(-280, 0, -60);
+          movingModel.position.set(-380, 0, -140);
           // movingModel.position.set(180, 0, 75);
           scene.add(movingModel);
           // 逆时针旋转90°
           gltf2.scene.rotation.y = Math.PI / 2; // 绕Y轴旋转
           const points = [
-            new THREE.Vector3(-20, 0, -60),
-            new THREE.Vector3(-20, 0, 75),
-            new THREE.Vector3(-220, 0, 75),
-            new THREE.Vector3(-220, 0, -60),
-            new THREE.Vector3(-20, 0, -60),
-            new THREE.Vector3(-20, 0, 75),
-            new THREE.Vector3(30, 0, 75),
-            new THREE.Vector3(110, 0, 75),
-            new THREE.Vector3(110, 0, -60),
-            new THREE.Vector3(-220, 0, -60),
-            new THREE.Vector3(-220, 0, 75),
-            new THREE.Vector3(-20, 0, 75),
+            new THREE.Vector3(-120, 0, -140),
+            new THREE.Vector3(-120, 0, -5),
+            new THREE.Vector3(-320, 0, -5),
+            new THREE.Vector3(-320, 0, -140),
+            new THREE.Vector3(-120, 0, -140),
+            new THREE.Vector3(-120, 0, -5),
+            new THREE.Vector3(-70, 0, -5),
+            new THREE.Vector3(10, 0, -5),
+            new THREE.Vector3(10, 0, -140),
+            new THREE.Vector3(-320, 0, -140),
+            new THREE.Vector3(-320, 0, -5),
+            new THREE.Vector3(-120, 0, -5),
           ];
 
           let currentIndex = 0;
@@ -118,7 +118,7 @@ export default {
               movingModel.position.copy(targetPosition);
             }
           }
-
+          console.log('Three.js版本：',THREE.REVISION);
           animateModel();
         });
       });
@@ -145,7 +145,7 @@ export default {
 
 <style>
 #container {
-  width: 80vw;
-  height: 80vh;
+  width: 100vw;
+  height: 100vh;
 }
 </style>
