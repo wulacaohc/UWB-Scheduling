@@ -16,9 +16,9 @@
         </dv-border-box-13>
       </div>
       <div class="cell">
-        <div class="parent-container" ref="parentContainer">
-          <dv-border-box-8 ref="borderBox">
-<!--            <mapView ref="mapView" />-->
+        <div class="parent-container" ref="borderBox">
+          <dv-border-box-8>
+            <mapView ref="mapView" />
           </dv-border-box-8>
         </div>
       </div>
@@ -61,14 +61,17 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      // 等待DOM更新完成后再调用 adjustMapSize
       this.adjustMapSize();
+      // 监听窗口大小变化事件
       window.addEventListener('resize', this.adjustMapSize);
     });
   },
   methods: {
     adjustMapSize() {
+      // 确保 mapView 组件已经挂载并且borderBox ref是存在的
       const borderBox = this.$refs.borderBox;
-      if (borderBox) {
+      if (borderBox && this.$refs.mapView) {
         const width = borderBox.offsetWidth;
         const height = borderBox.offsetHeight;
         this.$refs.mapView.adjustSize(width, height);
@@ -79,6 +82,7 @@ export default {
     }
   },
   beforeDestroy() {
+    // 移除窗口大小变化事件监听器
     window.removeEventListener('resize', this.adjustMapSize);
   },
 };
@@ -92,7 +96,7 @@ export default {
   justify-content: space-between; /* 左右对齐，中间平均分布 */
   align-items: flex-start; /* 垂直顶部对齐 */
   width: 100%;
-  height: 40px; /* 可以根据需要调整高度 */
+  height: 50px; /* 可以根据需要调整高度 */
   margin-top: 0; /* 确保装饰容器在顶部 */
 }
 .parent-container {
@@ -109,7 +113,6 @@ export default {
     /* 旁边两列各占1份，中间列占2份 */
     flex: 1;
   };
-
   .cell:nth-child(2) {
     flex: 2;
   }
