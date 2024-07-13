@@ -16,9 +16,11 @@
         </dv-border-box-13>
       </div>
       <div class="cell">
-        <dv-border-box-8>
-<!--            <mapView></mapView>-->
-        </dv-border-box-8>
+        <div class="parent-container" ref="parentContainer">
+          <dv-border-box-8 ref="borderBox">
+<!--            <mapView ref="mapView" />-->
+          </dv-border-box-8>
+        </div>
       </div>
       <div class="cell">
         <dv-border-box-13><ScrollBoard /></dv-border-box-13>
@@ -45,10 +47,10 @@ import ScrollBoard from "@/components/ScrollBoard.vue";
 import pieChart from "@/components/pieChart.vue";
 import column from "@/components/column.vue"
 import number from "@/components/number.vue"
-import mapView from "@/views/Map/mapView.vue";
-import {defineComponent} from "vue";
+import mapView from "@/components/mapchart.vue";
 
-export default defineComponent({
+
+export default {
   components: {
     RingChart,
     ScrollBoard,
@@ -57,12 +59,29 @@ export default defineComponent({
     number,
     mapView
   },
-  methods:{
-    coming(){
+  mounted() {
+    this.$nextTick(() => {
+      this.adjustMapSize();
+      window.addEventListener('resize', this.adjustMapSize);
+    });
+  },
+  methods: {
+    adjustMapSize() {
+      const borderBox = this.$refs.borderBox;
+      if (borderBox) {
+        const width = borderBox.offsetWidth;
+        const height = borderBox.offsetHeight;
+        this.$refs.mapView.adjustSize(width, height);
+      }
+    },
+    coming() {
       this.$router.push("/back/map");
     }
-  }
-})
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.adjustMapSize);
+  },
+};
 
 </script>
 
@@ -73,8 +92,12 @@ export default defineComponent({
   justify-content: space-between; /* 左右对齐，中间平均分布 */
   align-items: flex-start; /* 垂直顶部对齐 */
   width: 100%;
-  height: 50px; /* 可以根据需要调整高度 */
+  height: 40px; /* 可以根据需要调整高度 */
   margin-top: 0; /* 确保装饰容器在顶部 */
+}
+.parent-container {
+  width:100%;
+  height:100%;
 }
 .row1{
   width: 100%;
@@ -86,6 +109,7 @@ export default defineComponent({
     /* 旁边两列各占1份，中间列占2份 */
     flex: 1;
   };
+
   .cell:nth-child(2) {
     flex: 2;
   }
