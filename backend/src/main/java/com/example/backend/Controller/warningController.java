@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 //解决跨域问题
 @CrossOrigin
@@ -28,5 +29,16 @@ public class warningController {
     @GetMapping("/Page")
     public Result Page(warningPageRequest warningPageRequest) {
         return Result.success(warningService.page(warningPageRequest));
+    }
+
+    @GetMapping("/warningtype")
+    public Result Selectwarningtype() {
+        List<Map<String,Integer>> warningtype = warningService.Selectwarningtype();
+        return Result.success(warningtype);
+    }
+    @GetMapping("/warninglevel")
+    public Result Selectwarninglevel() {
+        List<Map<Integer,String>> warninglevel = warningService.Selectwarninglevel();
+        return Result.success(warninglevel);
     }
 }

@@ -18,5 +18,14 @@
                 </if>
             </where>
     </select>
-
+    <select id="Selectwarningtype" resultType="java.util.Map">
+        SELECT warningtype,
+        count(*) as count from warning
+        GROUP BY warningtype
+    </select>
+    <select id="Selectwarninglevel" resultType="java.util.Map">
+        SELECT warninglevel,
+        count(*) as count from warning
+        GROUP BY warninglevel
+    </select>
 </mapper>

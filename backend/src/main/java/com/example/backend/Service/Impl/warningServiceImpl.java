@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 //必须引用Service
@@ -25,5 +26,15 @@ public class warningServiceImpl implements warningService {
         PageHelper.startPage(warningPageRequest.getPageNum(), warningPageRequest.getPageSize());
         List<warning> warnings = warningMapper.listByCondition(warningPageRequest);
         return new PageInfo<>(warnings);
+    }
+    @Override
+    public List<Map<String,Integer>> Selectwarningtype(){
+        warningMapper.Selectwarningtype();
+        return warningMapper.Selectwarningtype();
+    }
+    @Override
+    public List<Map<Integer,String>> Selectwarninglevel(){
+        warningMapper.Selectwarninglevel();
+        return warningMapper.Selectwarninglevel();
     }
 }

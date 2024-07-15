@@ -47,6 +47,7 @@ com\example\backend\Controller\SchedulerController.class
 com\example\backend\huawei\demo\product\CreateProductByAK.class
 com\example\backend\common\MqttDemo$1.class
 com\example\backend\Mapper\MachineMapper.class
+com\example\backend\common\MessageSender.class
 com\example\backend\Service\EmployeeService.class
 com\example\backend\huawei\pojo\product\ServiceCapability.class
 com\example\backend\Controller\dto\Logindto.class
@@ -59,6 +60,7 @@ com\example\backend\Controller\EmployeeController.class
 com\example\backend\Controller\MachineController.class
 com\example\backend\huawei\demo\apig\SignUtil.class
 com\example\backend\Entity\Taskinfo.class
+com\example\backend\common\JDBCUtil.class
 com\example\backend\huawei\pojo\product\Response.class
 com\example\backend\Service\Impl\warningServiceImpl.class
 com\example\backend\Controller\warningController.class
@@ -71,7 +73,6 @@ com\example\backend\demos\web\User.class
 com\example\backend\Controller\request\CarPageRequest.class
 com\example\backend\huawei\pojo\auth\ProjectDTO.class
 com\example\backend\huawei\demo\device\CreateDevice.class
-com\example\backend\huawei\util\JDBCUtil.class
 com\example\backend\Mapper\warningMapper.class
 com\example\backend\Controller\request\EmployeePageRequest.class
 com\example\backend\huawei\demo\device\CreateMessageSolution.class

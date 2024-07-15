@@ -73,7 +73,7 @@ const option1={
   },
   legend: {
     top: '5%',
-    left: 'center'
+    left: 'centcder'
   },
   series: [
     {
@@ -100,12 +100,7 @@ const option1={
       labelLine: {
         show: false
       },
-      data: [
-        { value: 1048, name: '物料堆积' },
-        { value: 735, name: '危险区域' },
-        { value: 580, name: '设备故障' },
-        { value: 484, name: '车辆相撞' },
-      ]
+      data: []
     }
   ]
 };
@@ -116,22 +111,21 @@ const option2 = {
   },
   dataset: {
     source: [
-      ['score','product'],
-      [20, '一级报警'],
-      [30, '二级报警'],
-      [35, '三级报警'],
-      [70, '四级报警'],
-
+      ['amount','product'],
+      [20,'一级'],
+      [30,'二级'],
+      [35,'三级'],
+      [70,'四级'],
     ]
   },
   grid: { containLabel: true },
-  xAxis: { name: 'score' },
-  yAxis: { type: 'category' },
+  xAxis: { name: 'amount' },
+  yAxis: { type: 'category'},
   visualMap: {
     orient: 'horizontal',
     left: 'center',
-    min: 10,
-    max: 100,
+    min: 0,
+    max: 8,
     text: ['High Score', 'Low Score'],
     dimension: 0,
     inRange: {
@@ -142,9 +136,9 @@ const option2 = {
     {
       type: 'bar',
       encode: {
-        // Map the "amount" column to X axis.
+        // Map the "score" column to X axis.
         x: 'amount',
-        // Map the "product" column to Y axis
+        // Map the "level" column to Y axis
         y: 'product'
       }
     }
@@ -160,10 +154,52 @@ export default {
     let pieDom = document.getElementById('pie'); // 使用 getElementById 并传递 id 值
     let pieChart = echarts.init(pieDom);
     pieChart.setOption(option1);
+    request.get('/security/warningtype')
+      .then(res => {
+        if (res && res.data && Array.isArray(res.data)) {
+          const warningType = res.data.map(item => ({
+            name: item.warningtype,
+            value: item.count,
+          }));
+          option1.series[0].data = warningType;
+          pieChart.setOption(option1);
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
 
-    let lineDom = document.getElementById('line'); // 使用 getElementById 并传递 id 值
-    let lineChart = echarts.init(lineDom);
-    lineChart.setOption(option2);
+    let lineDom = document.getElementById('line');// 使用 getElementById 并传递 id 值
+    // let lineChart = echarts.init(lineDom);
+    // lineChart.setOption(option2);
+    if(!lineDom){
+      console.error("无法找到元素line");
+    }else {
+      let lineChart = echarts.init(lineDom);
+      if(lineChart){
+        if(!option2.dataset){
+          option2.dataset={};// 确保 option2 中有 dataset 对象
+        }
+        request.get('/security/warninglevel')
+          .then(res => {
+            if (res && res.data && Array.isArray(res.data)) {
+              const warninglevel = res.data.map(item => ({
+                amount: item.count,
+                category: item.warninglevel,
+              }))
+              option2.dataset.source = warninglevel;
+              console.log(option2.dataset.source);
+              lineChart.setOption(option2);
+              option2.dataset.source = {...option2.dataset.source};
+            }
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }else {
+        console.error('初始化echarts实例失败');
+      }
+    }
   },
   data () {
     return {
@@ -178,7 +214,6 @@ export default {
       },
     }
   },
-
   methods: {
     reset() {
       this.params = {
@@ -194,14 +229,13 @@ export default {
       this.params.pageNum = pageNum;
       this.load()
     },
-
     load() {   //查询数据的方法，fetch是查询后台数据的api，获取并格式转换，出现跨域错误
       request.get('/security/Page', {
         params: this.params
       }).then(res => {
         this.tableData = res.data.list
         this.total = res.data.total
-      })
+      });
     },
   },
   created() {
