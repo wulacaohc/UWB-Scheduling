@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface EmployeeMapper {
@@ -25,4 +26,6 @@ public interface EmployeeMapper {
     void updateEmployee(Employee employee);
 
     void deleteEmployee(String id);
+
+    List<Map<String, Object>> getEmployeeTypeCounts();
 }

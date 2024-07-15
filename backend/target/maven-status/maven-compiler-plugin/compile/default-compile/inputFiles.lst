@@ -46,6 +46,7 @@ D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\demo\product
 D:\项目\schedule\backend\src\main\java\com\example\backend\Service\Impl\UserServiceImpl.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\Controller\request\MachinePageRequest.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\demo\device\QueryDeviceListByAK.java
+D:\项目\schedule\backend\src\main\java\com\example\backend\common\JDBCUtil.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\pojo\auth\UserDTO.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\Mapper\warningMapper.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\demo\product\QueryProductListByAK.java
@@ -53,6 +54,7 @@ D:\项目\schedule\backend\src\main\java\com\example\backend\Controller\Material
 D:\项目\schedule\backend\src\main\java\com\example\backend\Exception\ServiceException.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\pojo\auth\ProjectDTO.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\demo\device\CreateDevice.java
+D:\项目\schedule\backend\src\main\java\com\example\backend\common\MessageSender.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\pojo\product\AddProduct.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\demo\product\QueryProductList.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\pojo\product\ServiceCapability.java
@@ -88,4 +90,3 @@ D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\pojo\device\
 D:\项目\schedule\backend\src\main\java\com\example\backend\Mapper\EmployeeMapper.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\Service\Impl\GeomServiceImpl.java
 D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\pojo\product\Response.java
-D:\项目\schedule\backend\src\main\java\com\example\backend\huawei\util\JDBCUtil.java

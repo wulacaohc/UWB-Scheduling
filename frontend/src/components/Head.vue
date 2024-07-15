@@ -1,6 +1,6 @@
 <template>
-<div class="header" style="border-bottom: 1px solid lightgrey;height:10vh">
-  <div class="right" style="margin-top:2vh;">
+<div class="header">
+  <div class="right">
     <el-button style="margin-right:2vw;background-color: #4F4F4F;color: white" @click="backing">返回数据大屏</el-button>
     <div class="user" style="padding-right:1vw">
        <el-dropdown style="margin-top:1vh;">
@@ -64,11 +64,13 @@ export default {
 .header{
   display: flex;
   height:12vh;
+  border-bottom: 1px solid lightgrey;
   .right{
     display: flex;
     align-items: center;
     position: absolute;
     right: 80px;
+    margin-top:2vh;
   }
 }
 

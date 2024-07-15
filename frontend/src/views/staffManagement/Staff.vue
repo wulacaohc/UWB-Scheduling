@@ -5,19 +5,20 @@
         <Aside/>
       </el-aside>
       <el-container class="header-and-main">
-        <el-header >
+        <el-header>
           <Head/>
         </el-header>
-        <el-main  class="main" >
+        <el-main  class="main" style="margin-top: 4vh">
           <div>
             <!--搜索框-->
             <div>
               <div style="margin-bottom: 4vh;margin-top:4vh;">
                 <el-input style="width:260px;" placeholder="请输入员工姓名" v-model="params.employeeName"></el-input>
-                <el-button title="" style="margin-left:5px;background-color: #4F4F4F;color: white" ><i class="el-icon-search" @click="load"></i>  搜索</el-button>
+                <el-button title="" style="margin-left:5px;background-color: #4F4F4F;color: white" @click="load"><i class="el-icon-search"></i>  搜索</el-button>
                 <el-button title="" style="margin-left:5px;background-color: #4F4F4F;color: white;" @click="reset" ><i class="el-icon-refresh" ></i>  重置</el-button>
                 <!--添加按钮  -->
-                <el-button title="" style="margin-left:500px;background-color: #4F4F4F;color: white;" @click="addStaff" ><i class="el-icon-plus" ></i>  添加</el-button>
+                <el-button title="" style="margin-left:200px;background-color: #4F4F4F;color: white;" @click="addStaff" ><i class="el-icon-plus" ></i>  添加</el-button>
+                <el-button title="" style="background-color: #4F4F4F;color: white;" @click="exportData" ><i class="el-icon-plus" ></i>  导出</el-button>
 
               </div>
             </div>
@@ -97,6 +98,9 @@ export default {
       this.load()//方法调用
   },
   methods:{
+    exportData(){
+      window.open('http://localhost:9090/Staff/export?employeeId='+this.params.employeeName);
+    },
     handleCurrentChange(pageNum){
       //点击分页按钮触发分页
       this.params.pageNum = pageNum;
@@ -144,9 +148,6 @@ export default {
         //   修改子组件
       this.$refs.dialog.dialogVisible = true;
       this.title="添加员工";
-    },
-    changeDialog(){
-      this.dialogVisible=false;
     },
     load(){   //查询数据的方法，fetch是查询后台数据的api，获取并格式转换，出现跨域错误
       // fetch("http://localhost:9090/Staff/List").then(res => res.json()).then((res)=>{

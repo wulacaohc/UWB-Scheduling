@@ -4,6 +4,7 @@ import com.example.backend.Controller.request.MachinePageRequest;
 import com.example.backend.Entity.Machine;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MachineService {
     void deleteMachine(String id);
@@ -15,4 +16,8 @@ public interface MachineService {
     List<Machine> SelectMachines();
 
     Object page(MachinePageRequest machinePageRequest);
+
+    List<Map<String, Object>> getMachineTypeCounts();
+
+    List<Map<String, Object>> getMachineNameCounts();
 }

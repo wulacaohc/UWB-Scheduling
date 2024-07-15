@@ -12,7 +12,6 @@
                            machinetype=#{machineType},machinestatus=#{machineStatus},materialid=#{materialId}
         where machineid = #{machineId}
     </update>
-
     <delete id="deleteMachine">
         delete machine where machineid = #{machineId}
     </delete>
@@ -26,5 +25,16 @@
                 machineid like concat('%',#{machineId},'%')
             </if>
         </where>
+        ORDER BY machineid ASC
+    </select>
+    <select id="getMachineTypeCounts" resultType="java.util.Map">
+            SELECT m.machinename AS machinename, COUNT(m.machineid) AS count
+            FROM machine m
+            GROUP BY m.machinename
+    </select>
+    <select id="getMachineNameCounts" resultType="java.util.Map">
+        SELECT m.machinetype AS machinetype, COUNT(m.machineid) AS count
+        FROM machine m
+        GROUP BY m.machinetype
     </select>
 </mapper>
