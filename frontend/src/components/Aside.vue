@@ -9,14 +9,10 @@
         <el-menu-item index="/back/map">
           <span style="text-decoration-color: white"><i class="el-icon-location" ></i>三维地图</span>
         </el-menu-item>
-       <el-submenu index="2">
-         <template slot="title">
-           <span slot="title"><i class="el-icon-files"></i>人员管理</span>
-         </template>
-         <el-menu-item index="/back/staff">人员列表</el-menu-item>
-         <el-menu-item index="/back/staCalender">考勤日历</el-menu-item>
-       </el-submenu>
-        <el-menu-item index="/back/task" >
+       <el-menu-item index="/back/staff">
+         <span style="text-decoration-color: white"><i class="el-icon-files"></i>人员管理</span>
+       </el-menu-item>
+        <el-menu-item index="/back/task">
          <span slot="title"><i class="el-icon-document"></i>任务发布</span>
         </el-menu-item>
         <el-menu-item index="/back/security">
@@ -29,6 +25,7 @@
           <el-menu-item index="/back/car">行车管理</el-menu-item>
           <el-menu-item index="/back/device">设备管理</el-menu-item>
           <el-menu-item index="/back/material">物料管理</el-menu-item>
+          <el-menu-item index="/back/staCalender">车间概况</el-menu-item>
         </el-submenu>
       </el-menu>
   </div>

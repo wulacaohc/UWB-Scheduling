@@ -20,8 +20,11 @@
           </el-form-item>
           <el-form-item label="岗位" prop="employeePosition" for="gangwei">
             <el-select  id="gangwei" v-model="staffForm.employeePosition" placeholder="请选择员工岗位">
-              <el-option label="技工" value="技工"></el-option>
-              <el-option label="焊工" value="焊工"></el-option>
+              <el-option label="仓库管理员" value="仓库管理员"></el-option>
+              <el-option label="熔铸工" value="熔铸工"></el-option>
+              <el-option label="运输员" value="运输员"></el-option>
+              <el-option label="轧制工" value="轧制工"></el-option>
+              <el-option label="精整工" value="精整工"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="入职日期" required>

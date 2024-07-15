@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="box__header">任务调度信息</div>
-    <dv-scroll-board :config="config" style="width:98%;height:90%" />
+    <dv-scroll-board :config="config" style="width:96%;height:86%" />
   </div>
 </template>
 
@@ -10,14 +10,14 @@ export default {
   data(){
     return{
       config:{
-        header: ['任务名', '任务时间', '任务到达时间'],
+        header: ['任务名', '任务时间', '到达时间'],
         data: [
-          ['A', '60', '13:54:16'],
-          ['B', '30', '13:54:16'],
-          ['C', '30', '13:54:16'],
-          ['D', '30', '13:54:16'],
-          ['E', '30', '13:54:16'],
-          ['F', '30', '13:54:16'],
+          ['A', '60', '13:54'],
+          ['B', '30', '13:54'],
+          ['C', '30', '13:54'],
+          ['D', '30', '13:54'],
+          ['E', '30', '13:54'],
+          ['F', '30', '13:54'],
         ],
         index: true,
         columnWidth: [50],

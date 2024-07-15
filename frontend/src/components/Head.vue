@@ -1,11 +1,11 @@
 <template>
-<div class="header" style="border-bottom: 1px solid lightgrey;height:65px">
+<div class="header" style="border-bottom: 1px solid lightgrey;height:10vh">
   <div class="right" style="margin-top:2vh;">
     <el-button style="margin-right:2vw;background-color: #4F4F4F;color: white" @click="backing">返回数据大屏</el-button>
     <div class="user" style="padding-right:1vw">
        <el-dropdown style="margin-top:1vh;">
           <span class="el-dropdown-link">
-             <img src="../image/img.png" alt="" style="height:6vh;">
+             <img src="../image/img.png" alt="" style="height:5vh;">
           </span>
        <el-dropdown-menu slot="dropdown">
          <el-dropdown-item>
@@ -63,7 +63,7 @@ export default {
 <style  scoped>
 .header{
   display: flex;
-  height:100px;
+  height:12vh;
   .right{
     display: flex;
     align-items: center;

@@ -8,11 +8,11 @@
         <el-header>
           <Head/>
         </el-header>
-        <div class="container">
-          <el-card style="width:70%;height:70%;padding-right:2px">
+        <el-main class="main" >
+          <el-card style="width:98%;height:98%;padding-right:2px;overflow:hidden;">
             <mapView/>
           </el-card>
-        </div>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -39,9 +39,11 @@ export default {
   flex-direction: column;
 }
 
-.container {
-  margin: 5vh;
-  width: 100vw;
-  height: 100vh;
+.main{
+  display: flex;
+  flex-direction:column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
 }
 </style>

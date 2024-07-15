@@ -1,6 +1,8 @@
 package com.example.backend.common;
 
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import javax.net.SocketFactory;
@@ -29,6 +31,7 @@ public class MqttDemo {
     private long defaultBackoff = 1000;
     private static int retryTimes = 0;
     private SecureRandom random = new SecureRandom();
+    JDBCUtil jdbc=new JDBCUtil();
 
     public static void main(String[] args) throws MqttException {
         MqttDemo mqttDemo = new MqttDemo();
@@ -87,32 +90,6 @@ public class MqttDemo {
 
     }
     /**
-     * 存入数据库
-     */
-    public void messageArrived(String topic, MqttMessage message) throws Exception {
-        System.out.println("Receive mqtt topic:" + topic + ", message:" + new String(message.getPayload()));
-
-        // 解析接收到的数据
-        String receivedData = new String(message.getPayload());
-        String[] dataParts = receivedData.split(","); // 假设数据格式是逗号分隔的字符串
-        if (dataParts.length == 3) {
-            // 将字符串转换为整数
-            int data1 = Integer.parseInt(dataParts[0].trim());
-            int data2 = Integer.parseInt(dataParts[1].trim());
-            int data3 = Integer.parseInt(dataParts[2].trim());
-
-            // 构建SQL语句
-            String sql = "INSERT INTO your_table_name (col1, col2, col3) VALUES (?, ?, ?)";
-
-            // 调用JDBCUtil的executeSql方法执行SQL语句
-            JDBCUtil jdbcUtil = new JDBCUtil();
-            Object[] params = new Object[] {data1, data2, data3};
-            jdbcUtil.executeSql(sql, params);
-        } else {
-            System.out.println("Received data format is incorrect.");
-        }
-    }
-    /**
      * Mqtt回调
      */
     private MqttCallback callback = new MqttCallbackExtended() {
@@ -131,6 +108,61 @@ public class MqttDemo {
         @Override
         public void messageArrived(String topic, MqttMessage message) throws Exception {
             System.out.println("Receive mqtt topic:" + topic + ", message:" + message);
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode jsonNode = null;
+            try {
+                jsonNode = objectMapper.readTree(new String(message.getPayload()));
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException("Failed to parse JSON", e);
+            }
+            //获取数据
+            JsonNode ManLocation=jsonNode.get("notify_data").get("body").get("services").get(0).get("properties").get("Locations_Man");
+            JsonNode MaterLocation=jsonNode.get("notify_data").get("body").get("services").get(0).get("properties").get("Locations_Material");
+            JsonNode CarLocation=jsonNode.get("notify_data").get("body").get("services").get(0).get("properties").get("Locations_Car");
+            //转换数据并且存入数据库
+
+            //人的坐标
+            String ManLocationstr=ManLocation.asText();
+            String[] dataParts1 = ManLocationstr.substring(1, ManLocationstr.length() - 1).split(",");
+            if(dataParts1.length ==3){
+                String data1 = dataParts1[0].trim();
+                String data2 = dataParts1[1].trim();
+                String data3 = dataParts1[2].trim();
+                System.out.println("人的坐标为"+ "("+data1 + "," + data2+ "," +data3 + ")");
+                String sql1="UPDATE employee SET geom_x = ?, geom_y = ?, geom_z = ? WHERE employeeid ='1'";
+                jdbc.executeSql(sql1,dataParts1);
+            }else{
+                System.out.println("1Received data format is incorrect.");
+            }
+
+            //物的坐标
+            String MaterLocationstr=MaterLocation.asText();
+            String[] dataParts2 = MaterLocationstr.substring(1, MaterLocationstr.length() - 1).split(",");
+            if(dataParts2.length ==3){
+                String data1 = dataParts2[0].trim();
+                String data2 = dataParts2[1].trim();
+                String data3 = dataParts2[2].trim();
+                System.out.println("物料的坐标为"+ "("+data1 + "," + data2+ "," +data3 + ")");
+                String sql2="UPDATE material SET geom_x = ?, geom_y = ?, geom_z = ? WHERE materialid =1";
+                jdbc.executeSql(sql2,dataParts2);
+            }else{
+                System.out.println("2Received data format is incorrect.");
+            }
+
+            //车的坐标
+            String CarLocationstr=CarLocation.asText();
+            String[] dataParts3 = CarLocationstr.substring(1, CarLocationstr.length() - 1).split(",");
+            if(dataParts3.length ==3){
+                String data1 = dataParts3[0].trim();
+                String data2 = dataParts3[1].trim();
+                String data3 = dataParts3[2].trim();
+                System.out.println("车的坐标为"+ "("+data1 + "," + data2+ "," +data3 + ")");
+                String sql3="UPDATE car SET geom_x = ?, geom_y = ?, geom_z = ? WHERE carid =101";
+                jdbc.executeSql(sql3,dataParts3);
+            }else{
+                System.out.println("3Received data format is incorrect.");
+            }
+
             //可在此处实现收到数据后的处理
         }
 

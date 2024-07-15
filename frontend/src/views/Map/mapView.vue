@@ -1,20 +1,43 @@
 <template>
-  <div ref="container"></div>
+  <div ref="container" class="label" id="tagRendererContainer" style="width: 1314px; height: 568px;">
+  </div>
 </template>
 
 <script>
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
+import {CSS2DRenderer,CSS2DObject} from "three/examples/jsm/renderers/CSS2DRenderer.js";
+import * as TWEEN from 'tween.js';
+
+var scene = new THREE.Scene();
+var camera = null;
+var renderer = null;
+var ambientLight = null;
+var controls = null;
+var tagRenderer = null;
 
 export default {
   data() {
     return {
-      scene: null,
-      camera: null,
-      renderer: null,
-      ambientLight: null,
-      controls: null
+      // scene: null,
+      // camera: null,
+      // renderer: null,
+      // ambientLight: null,
+      // controls: null,
+      // tagRenderer:null,
+      options: [
+        {label: '熔铸炉 设备进度：80% 设备温度：2000℃', position: {x: 170, y: 0, z: -190}},
+        {label: '步进炉 生产进度：60% 设备温度：1000℃', position: {x: 50, y: 0, z: -100}},
+        {label: '热轧机 生产进度：70% 设备温度：500℃', position: {x: -100, y: 0, z: -220}},
+        {label: '双面铣洗机 生产进度：30%', position: {x: -200, y: 0, z: -100}},
+        {label: '退火炉 生产进度：50% 设备温度：500℃', position: {x: -380, y: 0, z: 100}},
+        {label: '冷轧机 生产进度：50%', position: {x: -150, y: 0, z: 100}},
+        {label: '停车区', position: {x: 90, y: 0, z: 100}},
+        {label: '成品区', position: {x: 260, y: 0, z: 100}},
+        {label: '清洗机 生产进度：30%', position: {x: -150, y: 0, z: 300}},
+        {label: '精剪机 生产进度：60%', position: {x: 200, y: 0, z: 300}},
+      ],
     };
   },
   mounted() {
@@ -25,8 +48,6 @@ export default {
   methods: {
     initScene() {
       this.scene = new THREE.Scene();
-      // // 设置场景的背景颜色为蓝色
-      // this.scene.background = new THREE.Color(0x6495ED); // 使用十六进制颜色表示(蓝色为0x6495ED)
 
       // 加载背景图片
       const textureLoader = new THREE.TextureLoader();
@@ -36,10 +57,10 @@ export default {
       this.scene.background = texture;
 
       this.camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 20, 1000);
-      this.camera.position.set(0, 250, 50);
+      this.camera.position.set(0, 260, 0);
       this.camera.lookAt(0, 0, 0);
 
-      this.renderer = new THREE.WebGLRenderer({antialias: true,alpha:true});
+      this.renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
       this.renderer.setSize(window.innerWidth, window.innerHeight);
       this.$refs.container.appendChild(this.renderer.domElement);
 
@@ -57,6 +78,18 @@ export default {
       directionalLight.position.set(0, 40);
       this.scene.add(directionalLight);
 
+      this.tagRenderer = new CSS2DRenderer();
+      // this.tagRenderer.setSize(window.innerWidth, window.innerHeight); // 根据你的容器设置大小
+      // 获取DOM元素作为渲染器容器
+      const container = document.getElementById('tagRendererContainer');
+      // 使用这个DOM元素作为渲染器容器
+      this.tagRenderer.setSize(container.clientWidth, container.clientHeight);
+      this.tagRenderer.domElement.style.position = "absolute";
+      this.tagRenderer.domElement.style.yIndex = 9; // 确保它在最上面
+      this.tagRenderer.domElement.style.top = "0px";
+      this.tagRenderer.domElement.style.pointerEvents = "none"; // 防止与 3D 交互冲突
+      this.$refs.container.appendChild(this.tagRenderer.domElement); // 附加到你的 3D 容器
+
       this.animate();
     },
     loadModel() {
@@ -65,32 +98,44 @@ export default {
 
       gltfLoader.load("/module/map1.glb", (gltf1) => {
         const baseModel = gltf1.scene;
-        baseModel.position.set(-180, 0, -80);
+        baseModel.position.set(-240, 0, -70);
         scene.add(baseModel);
         // 逆时针旋转90°
         gltf1.scene.rotation.y = Math.PI / 2; // 绕Y轴旋转
 
         gltfLoader.load("/module/car2.glb", (gltf2) => {
           const movingModel = gltf2.scene;
-          movingModel.position.set(-380, 0, -140);
-          // movingModel.position.set(180, 0, 75);
+          movingModel.position.set(-440, 0, -130);
           scene.add(movingModel);
           // 逆时针旋转90°
           gltf2.scene.rotation.y = Math.PI / 2; // 绕Y轴旋转
           const points = [
-            new THREE.Vector3(-120, 0, -140),
-            new THREE.Vector3(-120, 0, -5),
-            new THREE.Vector3(-320, 0, -5),
-            new THREE.Vector3(-320, 0, -140),
-            new THREE.Vector3(-120, 0, -140),
-            new THREE.Vector3(-120, 0, -5),
-            new THREE.Vector3(-70, 0, -5),
-            new THREE.Vector3(10, 0, -5),
-            new THREE.Vector3(10, 0, -140),
-            new THREE.Vector3(-320, 0, -140),
-            new THREE.Vector3(-320, 0, -5),
-            new THREE.Vector3(-120, 0, -5),
+            new THREE.Vector3(-180, 0, -130),
+            new THREE.Vector3(-180, 0, 5),
+            new THREE.Vector3(-380, 0, 5),
+            new THREE.Vector3(-380, 0, -130),
+            new THREE.Vector3(-180, 0, -130),
+            new THREE.Vector3(-180, 0, 5),
+            new THREE.Vector3(-130, 0, 5),
+            new THREE.Vector3(50, 0, 5),
+            new THREE.Vector3(50, 0, -130),
+            new THREE.Vector3(-380, 0, -130),
+            new THREE.Vector3(-380, 0, 5),
+            new THREE.Vector3(-180, 0, 5),
           ];
+
+          //创建标签
+          this.options.forEach((item) => {
+            if (item.position) {
+              let domElement = document.createElement("div");
+              domElement.className = "label";
+              domElement.innerHTML = `<div class="label">${item.label}</div>`;
+
+              let labelObject = new CSS2DObject(domElement);
+              labelObject.position.set(item.position.x, item.position.y, item.position.z);
+              this.scene.add(labelObject);
+            }
+          });
 
           let currentIndex = 0;
 
@@ -104,7 +149,7 @@ export default {
             const targetPosition = points[currentIndex];
             const direction = targetPosition.clone().sub(movingModel.position).normalize();
             const distance = movingModel.position.distanceTo(targetPosition);
-            const speed = 50; // 调整速度以适应移动效果
+            const speed = 30; // 调整速度以适应移动效果
             const step = speed * 0.1; // 调整步长以适应不同的移动速度
 
             // 让模型朝向目标位置
@@ -118,24 +163,33 @@ export default {
               movingModel.position.copy(targetPosition);
             }
           }
-          console.log('Three.js版本：',THREE.REVISION);
+
+          console.log('Three.js版本：', THREE.REVISION);
           animateModel();
         });
       });
+    },
+    animate() {
+      if (!this.renderer) {
+        return;
+      }
+      requestAnimationFrame(this.animate);
+      this.controls.update();
+      TWEEN.update();
+      this.renderer.render(this.scene, this.camera);
+      if (!this.tagRenderer) {
+        return;
+      }
+      this.tagRenderer.render(this.scene, this.camera);
     },
     onWindowResize() {
       this.camera.aspect = window.innerWidth / window.innerHeight;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(window.innerWidth, window.innerHeight);
-
+      this.tagRenderer.setSize(window.innerWidth, window.innerHeight);
       const size = window.innerWidth / 100;
       this.loadModel(size, size, size);
     },
-    animate() {
-      requestAnimationFrame(this.animate);
-      this.controls.update();
-      this.renderer.render(this.scene, this.camera);
-    }
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.onWindowResize);
@@ -144,8 +198,22 @@ export default {
 </script>
 
 <style>
-#container {
-  width: 100vw;
-  height: 100vh;
+.label {
+  white-space: nowrap;
+  font-size: 14px; /* 增加标签标记的字体大小 */
+  font-weight: bold; /* 设置标签标记文本加粗 */
+  color: white; /* 将标签标记文本颜色设置为白色 */
+  background-color: rgba(51, 51, 51, 0.2); /* 设置标签标记的背景颜色 */
+  border-radius: 5px; /* 添加圆角边框到标签标记 */
+  padding: 0px 0px; /* 在标签标记文本周围添加内边距 */
+  position: relative;
+  y-index: 9; /* 确保标签标记显示在其他元素之上 */
+  border-width: 1px 1px; /* 设置宽度为10像素，长度为5像素的边框 */
+  border-style: solid;
+  border-color: #eeeeee; /* 设置边框颜色为红色 */
+
+  &:hover {
+    color: aqua;
+  }
 }
 </style>
