@@ -8,7 +8,7 @@
         <el-header >
           <Head/>
         </el-header>
-        <el-main  class="main" >
+        <el-main  class="main" style="margin-top: 4vh">
           <el-row :gutter="20">
             <el-col :span="12">
               <el-card style="height: 350px; margin: 10px; padding: 10px;">
@@ -35,6 +35,7 @@
 import Head from "@/components/Head.vue";
 import Aside from "@/components/Aside.vue";
 import * as echarts from 'echarts';
+import request from "@/utils/request";
 
 const option = {
   title:{
@@ -63,11 +64,7 @@ const option = {
         borderRadius: 8
       },
       data: [
-        { value: 40, name: '轧制工' },
-        { value: 38, name: '精整工' },
-        { value: 32, name: '熔铸工' },
-        { value: 30, name: '仓库管理员' },
-        { value: 28, name: '运输员' },
+
       ]
     }
   ]
@@ -82,6 +79,20 @@ export default {
     let pieDom1 = document.getElementById('pie1'); // 使用 getElementById 并传递 id 值
     let pieChart1 = echarts.init(pieDom1);
     pieChart1.setOption(option);
+    request.get('/Staff/Ringchart')
+      .then(response => {
+        if (response && response.data && Array.isArray(response.data)) {
+          const dynamicData = response.data.map(item => ({
+            value: item.count, // 确保这里的属性与 echarts 所需的属性一致
+            name: item.employeeposition
+          }));
+          option.series[0].data = dynamicData; // 更新图表数据
+          pieChart1.setOption(option); // 重新渲染图表
+        }
+      })
+      .catch(error => {
+        console.error('请求数据失败:', error);
+      });
     //柱状图
     this.renderChart();
     //综合图

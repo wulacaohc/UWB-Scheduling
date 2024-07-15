@@ -5,6 +5,7 @@ import com.example.backend.Entity.Machine;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface MachineMapper {
@@ -18,4 +19,8 @@ public interface MachineMapper {
     List<Machine> SelectMachines();
 
     List<Machine> listByCondition(MachinePageRequest machinePageRequest);
+
+    List<Map<String, Object>> getMachineTypeCounts();
+
+    List<Map<String, Object>> getMachineNameCounts();
 }

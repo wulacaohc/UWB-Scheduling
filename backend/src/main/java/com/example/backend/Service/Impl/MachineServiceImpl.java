@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MachineServiceImpl implements MachineService {
@@ -44,5 +45,15 @@ public class MachineServiceImpl implements MachineService {
         PageHelper.startPage(machinePageRequest.getPageNum(), machinePageRequest.getPageSize());
         List<Machine> machines = machineMapper.listByCondition(machinePageRequest);
         return new PageInfo<>(machines);
+    }
+
+    @Override
+    public List<Map<String, Object>> getMachineTypeCounts() {
+        return machineMapper.getMachineTypeCounts();
+    }
+
+    @Override
+    public List<Map<String, Object>> getMachineNameCounts() {
+        return machineMapper.getMachineNameCounts();
     }
 }

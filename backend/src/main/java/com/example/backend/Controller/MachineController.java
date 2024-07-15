@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin            //解决跨域问题
 @RestController
@@ -46,6 +47,17 @@ public class MachineController {
     public Result Page(MachinePageRequest machinePageRequest) {
         return Result.success(machineService.page(machinePageRequest));
         // return Result.success(employeeMapper.SelectEmployees());
+    }
+
+    @GetMapping("/Chartdataout")
+    public Result getChartdatainside() {
+        List<Map<String, Object>> list = machineService.getMachineTypeCounts();
+        return Result.success(list);
+    }
+    @GetMapping("/Chartdatainside")
+    public Result getChartdataout() {
+        List<Map<String, Object>> list = machineService.getMachineNameCounts();
+        return Result.success(list);
     }
 
 }

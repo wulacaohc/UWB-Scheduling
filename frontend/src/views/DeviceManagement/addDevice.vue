@@ -16,7 +16,11 @@
              <el-input v-model="deviceForm.labelId" id="lable"></el-input>
           </el-form-item>
           <el-form-item label="设备类型" prop="devicetype" for="remark">
-             <el-input v-model="deviceForm.machineType" id="remark"></el-input>
+            <el-select  v-model="deviceForm.machineType" id="remark" placeholder="请选择设备类型">
+              <el-option label="大型设备" value="大型设备"></el-option>
+              <el-option label="中型设备" value="中型设备"></el-option>
+              <el-option label="小型设备" value="小型设备"></el-option>
+            </el-select>
           </el-form-item>
           <el-form-item label="设备状态" prop="deviceStatus" for="status">
              <el-input v-model="deviceForm.machineStatus" id="status"></el-input>
@@ -100,6 +104,7 @@ export default {
   },
   methods:{
     close(){
+      this.resetForm('ruleForm');
       this.deviceForm={
         deviceForm:{//大对象
           machineId:"",
