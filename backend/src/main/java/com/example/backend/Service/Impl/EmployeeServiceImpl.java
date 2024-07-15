@@ -2,15 +2,12 @@ package com.example.backend.Service.Impl;
 
 import com.example.backend.Controller.request.EmployeePageRequest;
 import com.example.backend.Entity.Employee;
-import com.example.backend.Entity.User;
 import com.example.backend.Mapper.EmployeeMapper;
 import com.example.backend.Service.EmployeeService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -52,5 +49,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<Map<String, Object>> getEmployeeTypeCounts() {
         return employeeMapper.getEmployeeTypeCounts();
+    }
+
+    @Override
+    public void saveBatch(List<Employee> employeeList) {
+        for(Employee employee : employeeList) {
+            employeeMapper.addEmployee(employee);
+        }
     }
 }

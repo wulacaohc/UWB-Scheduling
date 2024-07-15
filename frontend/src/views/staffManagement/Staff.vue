@@ -17,7 +17,18 @@
                 <el-button title="" style="margin-left:5px;background-color: #4F4F4F;color: white" @click="load"><i class="el-icon-search"></i>  搜索</el-button>
                 <el-button title="" style="margin-left:5px;background-color: #4F4F4F;color: white;" @click="reset" ><i class="el-icon-refresh" ></i>  重置</el-button>
                 <!--添加按钮  -->
-                <el-button title="" style="margin-left:200px;background-color: #4F4F4F;color: white;" @click="addStaff" ><i class="el-icon-plus" ></i>  添加</el-button>
+                <el-dropdown @command="handleCommand">
+                  <el-button  style="margin-left: 350px;background-color: #4F4F4F;color: white;">
+                    <i class="el-icon-plus"/> 添加
+                  </el-button>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item command="single">单个添加</el-dropdown-item>
+                    <el-upload action="http://localhost:9090/Staff/import" :on-success="handleImport" :show-file-list="false">
+                      <el-dropdown-item command="batch">批量添加</el-dropdown-item>
+                    </el-upload>
+                  </el-dropdown-menu>
+                </el-dropdown>
+
                 <el-button title="" style="background-color: #4F4F4F;color: white;" @click="exportData" ><i class="el-icon-plus" ></i>  导出</el-button>
 
               </div>
@@ -98,6 +109,25 @@ export default {
       this.load()//方法调用
   },
   methods:{
+    // 处理下拉菜单的命令
+    handleCommand(command) {
+      if (command === 'single') {
+        // 执行单个添加逻辑
+        console.log('执行单个添加');
+        this.addStaff();
+      } else if (command === 'batch') {
+        // 执行批量添加逻辑
+        console.log('执行批量添加');
+      }
+    },
+    handleImport(res,file,fileList){
+      if(res.code === 'success') {
+        this.$message.success("操作成功");
+        this.load();
+      }else{
+        this.$message.error(res.msg);
+      }
+    },
     exportData(){
       window.open('http://localhost:9090/Staff/export?employeeId='+this.params.employeeName);
     },

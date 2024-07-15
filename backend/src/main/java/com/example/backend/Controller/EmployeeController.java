@@ -1,20 +1,16 @@
 package com.example.backend.Controller;
 
-
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 import com.example.backend.Controller.request.EmployeePageRequest;
 import com.example.backend.Entity.Employee;
-import com.example.backend.Mapper.EmployeeMapper;
-
 import com.example.backend.Service.EmployeeService;
 import com.example.backend.common.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -22,7 +18,6 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 //接口大致分为查询所有的、分页查询的、按id查询的、增删改
 
 @CrossOrigin            //解决跨域问题
@@ -94,9 +89,17 @@ public class EmployeeController {
     /*
     * 批量导入
     * */
-//    @PostMapping("/import")
-//    public Result importData(@RequestParam MultipartFile file) throws IOException {
-//        ExcelReader reader = ExcelUtil.getReader(file.getInputStream());
-//        reader.readAll();
-//    }
+    @PostMapping("/import")
+    public Result importData(@RequestParam MultipartFile file) throws IOException {
+        ExcelReader reader = ExcelUtil.getReader(file.getInputStream());
+        List<Employee> employees = reader.readAll(Employee.class);
+        //写入数据到数据库
+        try{
+            employeeService.saveBatch(employees);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.error("批量导入数据错误");
+        }
+        return Result.success();
+    }
 }

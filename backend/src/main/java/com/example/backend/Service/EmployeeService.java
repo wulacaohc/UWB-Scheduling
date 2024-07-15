@@ -19,4 +19,6 @@ public interface EmployeeService {
     void deleteEmployee(String id);
 
     List<Map<String, Object>> getEmployeeTypeCounts();
+
+    void saveBatch(List<Employee> employeeList);
 }
