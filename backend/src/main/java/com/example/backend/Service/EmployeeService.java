@@ -4,6 +4,7 @@ import com.example.backend.Controller.request.EmployeePageRequest;
 import com.example.backend.Entity.Employee;
 
 import java.util.List;
+import java.util.Map;
 
 public interface EmployeeService {
 
@@ -16,4 +17,6 @@ public interface EmployeeService {
     void updateEmployee(Employee employee);
 
     void deleteEmployee(String id);
+
+    List<Map<String, Object>> getEmployeeTypeCounts();
 }

@@ -18,6 +18,12 @@
           <el-form-item label="电话" prop="employeePhone" for="dianhua">
              <el-input v-model="staffForm.employeePhone" id="dianhua"></el-input>
           </el-form-item>
+          <el-form-item label="工作状态" prop="employeeStatus" for="status">
+            <el-select  id="status" v-model="staffForm.employeeStatus" placeholder="工作状态">
+              <el-option label="空闲中" value="空闲中"></el-option>
+              <el-option label="工作中" value="工作中"></el-option>
+            </el-select>
+          </el-form-item>
           <el-form-item label="岗位" prop="employeePosition" for="gangwei">
             <el-select  id="gangwei" v-model="staffForm.employeePosition" placeholder="请选择员工岗位">
               <el-option label="仓库管理员" value="仓库管理员"></el-option>
@@ -74,6 +80,7 @@ export default {
         labelId:"",
         employeePhone:"",
         employeePosition:"",
+        employeeStatus:"空闲中",
         employeeWorkdate:"",
       },
       params:{
@@ -82,6 +89,7 @@ export default {
         labelId:"",
         employeePhone:"",
         employeePosition:"",
+        employeeStatus: "",
         employeeWorkdate:"",
       },
       rules:{
@@ -121,12 +129,14 @@ export default {
   },
   methods:{
     close(){
+      this.resetForm('ruleForm');
       this.staffForm={
         staffForm:{//大对象
           employeeId:"",
           employeeName:"",
           labelId:"",
           employeePosition:"",
+          employeeStatus:"空闲中",
           employeeWorkdate:"",
         },
       }

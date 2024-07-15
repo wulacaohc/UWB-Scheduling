@@ -10,7 +10,9 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 @Service
 //必须引用Service
@@ -45,5 +47,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void deleteEmployee(String id) {
         employeeMapper.deleteEmployee(id);
+    }
+
+    @Override
+    public List<Map<String, Object>> getEmployeeTypeCounts() {
+        return employeeMapper.getEmployeeTypeCounts();
     }
 }
