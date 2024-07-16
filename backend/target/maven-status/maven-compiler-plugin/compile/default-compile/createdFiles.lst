@@ -73,6 +73,7 @@ com\example\backend\demos\web\User.class
 com\example\backend\Controller\request\CarPageRequest.class
 com\example\backend\huawei\pojo\auth\ProjectDTO.class
 com\example\backend\huawei\demo\device\CreateDevice.class
+com\example\backend\huawei\util\JDBCUtil.class
 com\example\backend\Mapper\warningMapper.class
 com\example\backend\Controller\request\EmployeePageRequest.class
 com\example\backend\huawei\demo\device\CreateMessageSolution.class

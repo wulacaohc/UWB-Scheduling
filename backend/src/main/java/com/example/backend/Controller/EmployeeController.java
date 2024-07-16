@@ -15,7 +15,11 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 //接口大致分为查询所有的、分页查询的、按id查询的、增删改
@@ -91,15 +95,40 @@ public class EmployeeController {
     * */
     @PostMapping("/import")
     public Result importData(@RequestParam MultipartFile file) throws IOException {
+        // 使用hutool读取Excel文件
         ExcelReader reader = ExcelUtil.getReader(file.getInputStream());
         List<Employee> employees = reader.readAll(Employee.class);
-        //写入数据到数据库
-        try{
+
+        // 获取当前时间作为默认日期
+        Date defaultDate = new Date(System.currentTimeMillis());
+
+        for (Employee employee : employees) {
+            // 检查employeeWorkdate是否为null或者格式不正确
+            if (employee.getEmployeeWorkdate() == null || !isValidDate(employee.getEmployeeWorkdate())) {
+                // 设置默认日期
+                employee.setEmployeeWorkdate(new java.sql.Date(System.currentTimeMillis()));
+            }
+        }
+
+        try {
+            // 保存员工数据
             employeeService.saveBatch(employees);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return Result.error("批量导入数据错误");
         }
         return Result.success();
+    }
+
+    // 自定义的日期验证方法
+    private boolean isValidDate(Date date) {
+        // 这里实现日期验证逻辑，例如使用SimpleDateFormat检查日期格式
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            dateFormat.parse(dateFormat.format(date));
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
     }
 }

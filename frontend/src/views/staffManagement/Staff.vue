@@ -18,7 +18,7 @@
                 <el-button title="" style="margin-left:5px;background-color: #4F4F4F;color: white;" @click="reset" ><i class="el-icon-refresh" ></i>  重置</el-button>
                 <!--添加按钮  -->
                 <el-dropdown @command="handleCommand">
-                  <el-button  style="margin-left: 350px;background-color: #4F4F4F;color: white;">
+                  <el-button  style="margin-left:400px;background-color: #4F4F4F;color: white;">
                     <i class="el-icon-plus"/> 添加
                   </el-button>
                   <el-dropdown-menu slot="dropdown">
@@ -29,7 +29,7 @@
                   </el-dropdown-menu>
                 </el-dropdown>
 
-                <el-button title="" style="background-color: #4F4F4F;color: white;" @click="exportData" ><i class="el-icon-plus" ></i>  导出</el-button>
+                <el-button title="" style="margin-left:10px;background-color: #4F4F4F;color: white;" @click="exportData" ><i class="el-icon-plus" ></i>  导出</el-button>
 
               </div>
             </div>
@@ -171,6 +171,7 @@ export default {
             message: '已取消删除'
           });
         });
+        this.load()
     },
     // 弹窗添加
     addStaff(){

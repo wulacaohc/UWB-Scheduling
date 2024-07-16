@@ -27,16 +27,16 @@ export default {
       // controls: null,
       // tagRenderer:null,
       options: [
-        {label: '熔铸炉 设备进度：80% 设备温度：2000℃', position: {x: 170, y: 0, z: -190}},
-        {label: '步进炉 生产进度：60% 设备温度：1000℃', position: {x: 50, y: 0, z: -100}},
-        {label: '热轧机 生产进度：70% 设备温度：500℃', position: {x: -100, y: 0, z: -220}},
-        {label: '双面铣洗机 生产进度：30%', position: {x: -200, y: 0, z: -100}},
-        {label: '退火炉 生产进度：50% 设备温度：500℃', position: {x: -380, y: 0, z: 100}},
-        {label: '冷轧机 生产进度：50%', position: {x: -150, y: 0, z: 100}},
-        {label: '停车区', position: {x: 90, y: 0, z: 100}},
-        {label: '成品区', position: {x: 260, y: 0, z: 100}},
-        {label: '清洗机 生产进度：30%', position: {x: -150, y: 0, z: 300}},
-        {label: '精剪机 生产进度：60%', position: {x: 200, y: 0, z: 300}},
+        {label: '熔铸炉 设备进度：80% 设备温度：2000℃', position: {x: 120, y: 0, z: -190}},
+        {label: '热轧机 生产进度：70% 设备温度：500℃', position: {x: -300, y: 0, z: -220}},
+        {label: '步进炉 生产进度：60% 设备温度：1000℃', position: {x: 50, y: 0, z: -120}},
+        {label: '双面铣洗机 生产进度：30%', position: {x: -250, y: 0, z: -120}},
+        {label: '退火炉 生产进度：50% 设备温度：500℃', position: {x: -380, y: 0, z: 30}},
+        {label: '冷轧机 生产进度：50%', position: {x: -180, y: 0, z: 30}},
+        {label: '停车区', position: {x: -10, y: 0, z: 30}},
+        {label: '成品区', position: {x: 100, y: 0, z: 30}},
+        {label: '清洗机 生产进度：30%', position: {x: -250, y: 0, z: 160}},
+        {label: '精剪机 生产进度：60%', position: {x: 50, y: 0, z: 160}},
       ],
     };
   },
@@ -98,7 +98,7 @@ export default {
 
       gltfLoader.load("/module/map1.glb", (gltf1) => {
         const baseModel = gltf1.scene;
-        baseModel.position.set(-240, 0, -70);
+        baseModel.position.set(-150, 0, -70);
         scene.add(baseModel);
         // 逆时针旋转90°
         gltf1.scene.rotation.y = Math.PI / 2; // 绕Y轴旋转
@@ -110,18 +110,18 @@ export default {
           // 逆时针旋转90°
           gltf2.scene.rotation.y = Math.PI / 2; // 绕Y轴旋转
           const points = [
-            new THREE.Vector3(-180, 0, -130),
-            new THREE.Vector3(-180, 0, 5),
-            new THREE.Vector3(-380, 0, 5),
-            new THREE.Vector3(-380, 0, -130),
-            new THREE.Vector3(-180, 0, -130),
-            new THREE.Vector3(-180, 0, 5),
-            new THREE.Vector3(-130, 0, 5),
-            new THREE.Vector3(50, 0, 5),
-            new THREE.Vector3(50, 0, -130),
-            new THREE.Vector3(-380, 0, -130),
-            new THREE.Vector3(-380, 0, 5),
-            new THREE.Vector3(-180, 0, 5),
+            new THREE.Vector3(-90, 0, -130),
+            new THREE.Vector3(-90, 0, 5),
+            new THREE.Vector3(-290, 0, 5),
+            new THREE.Vector3(-290, 0, -130),
+            new THREE.Vector3(-90, 0, -130),
+            new THREE.Vector3(-90, 0, 5),
+            new THREE.Vector3(-40, 0, 5),
+            new THREE.Vector3(140, 0, 5),
+            new THREE.Vector3(140, 0, -130),
+            new THREE.Vector3(-290, 0, -130),
+            new THREE.Vector3(-290, 0, 5),
+            new THREE.Vector3(-90, 0, 5),
           ];
 
           //创建标签

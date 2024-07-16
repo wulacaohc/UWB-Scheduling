@@ -23,8 +23,6 @@ import java.util.concurrent.TimeUnit;
 public class QueryDeviceList {
     //当程序开启后，每分钟拿取一次数据不间断。
     public static void main(String[] args) throws NoSuchAlgorithmException, KeyManagementException, IOException, URISyntaxException {
-        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        executorService.scheduleAtFixedRate(() ->{
             JDBCUtil jdbc=new JDBCUtil();
             String token = null;
             try {
@@ -37,9 +35,9 @@ public class QueryDeviceList {
                 throw new RuntimeException(e);
             }
             String project_id = "840b5077cd664026a40a9b12704c426d";
-        String device_id = "668924855830dc113ecb2cda_860059074965505";
-        String url = Constants.DEVICE_COMMAND_URL;        //查询设备
-//        String url =Constants.DEVICE_SHADOW_URL;            //查询设备影子
+        String device_id = "6672a2ca7dbfd46fabc1076e_nbiot";
+//        String url = Constants.DEVICE_COMMAND_URL;        //查询设备
+        String url =Constants.DEVICE_SHADOW_URL;            //查询设备影子
         url = String.format(url, project_id, device_id);
 
         Map<String, String> header = new HashMap<String, String>();
@@ -94,7 +92,7 @@ public class QueryDeviceList {
         System.out.println("Location_Man = "+ "("+ManLocationNodex + "," + ManLocationNodey + "," + ManLocationNodez + ")");
         System.out.println("人的坐标为"+ "("+ManLocationNodex + "," + ManLocationNodey + "," + ManLocationNodez + ")");
         try {
-            String sql="UPDATE employee SET geom_x = ?, geom_y = ?, geom_z = ? WHERE employeeid ='1'";
+            String sql="UPDATE employee SET geom_x = ?, geom_y = ?, geom_z = ? WHERE employeeid ='1101'";
             jdbc.executeSql(sql,new Object[] {ManLocationNodexstr, ManLocationNodeystr, ManLocationNodezstr});
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -110,7 +108,7 @@ public class QueryDeviceList {
         System.out.println("Location_Material = "+ "("+MaterLocationNodex + "," + MaterLocationNodey + "," + MaterLocationNodez + ")");
         System.out.println("物料的坐标为"+ "("+MaterLocationNodex + "," + MaterLocationNodey + "," + MaterLocationNodez + ")");
         try {
-            String sql="UPDATE material SET geom_x = ?, geom_y = ?, geom_z = ? WHERE materialid =1";
+            String sql="UPDATE material SET geom_x = ?, geom_y = ?, geom_z = ? WHERE materialid =27";
             jdbc.executeSql(sql,new Object[] {MaterLocationNodexstr, MaterLocationNodeystr, MaterLocationNodezstr});
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -126,12 +124,11 @@ public class QueryDeviceList {
         System.out.println("Location_Car = "+ "("+CarLocationNodex + "," + CarLocationNodey + "," + CarLocationNodez + ")");
         System.out.println("小车的坐标为"+ "("+CarLocationNodex + "," + CarLocationNodey + "," + CarLocationNodez + ")");
         try {
-            String sql="UPDATE car SET geom_x = ?, geom_y = ?, geom_z = ? WHERE carid =101";
+            String sql="UPDATE car SET geom_x = ?, geom_y = ?, geom_z = ? WHERE carid =2101";
             jdbc.executeSql(sql,new Object[] {CarLocationNodexstr, CarLocationNodeystr, CarLocationNodezstr});
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        }, 0, 1, TimeUnit.MINUTES);
     }
 }
 

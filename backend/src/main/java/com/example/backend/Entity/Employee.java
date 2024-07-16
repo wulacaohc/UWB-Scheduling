@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Data
 public class Employee {
@@ -22,6 +23,7 @@ public class Employee {
     @Alias("电话号码")
     private String employeePhone;
     @Alias("上岗日期")
-    @DateTimeFormat(pattern = "yyyy-MMMM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") // 格式应与数据库中的日期格式一致
     private Date employeeWorkdate;
+
 }

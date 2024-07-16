@@ -8,8 +8,8 @@
         <el-header>
           <Head/>
         </el-header>
-        <el-main class="main" >
-          <el-card style="width:98%;height:98%;padding-right:2px;overflow:hidden;">
+        <el-main class="main" style="margin-top: 4vh">
+          <el-card style="margin-top:2vh;width:98%;height:98%;padding-right:2px;overflow:hidden;">
             <mapView/>
           </el-card>
         </el-main>
