@@ -13,7 +13,7 @@ export default {
         header: ['任务名', '任务时间', '到达时间'],
         data: [], // 初始化为空数组，将从后端填充
         index: true,
-        columnWidth: [100, 100, 100], // 假设您想要为每列设置相同的宽度，或根据需要调整
+        columnWidth: [60, 60, 40], // 假设您想要为每列设置相同的宽度，或根据需要调整
         align: ['center', 'center', 'center'] // 假设您想要所有列都居中
       },
       loading: false, // 加载状态，用于显示加载指示器

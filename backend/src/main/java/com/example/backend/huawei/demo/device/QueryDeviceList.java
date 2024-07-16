@@ -23,6 +23,8 @@ import java.util.concurrent.TimeUnit;
 public class QueryDeviceList {
     //当程序开启后，每分钟拿取一次数据不间断。
     public static void main(String[] args) throws NoSuchAlgorithmException, KeyManagementException, IOException, URISyntaxException {
+        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+        executorService.scheduleAtFixedRate(() ->{
             JDBCUtil jdbc=new JDBCUtil();
             String token = null;
             try {
@@ -129,6 +131,7 @@ public class QueryDeviceList {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        }, 0, 1, TimeUnit.MINUTES);
     }
 }
 

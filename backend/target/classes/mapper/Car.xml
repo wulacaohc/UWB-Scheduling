@@ -32,7 +32,6 @@
             <if test="carId !='' and carId != null">
                 carid like concat('%',#{carId},'%')
             </if>
-
         </where>
     </select>
 </mapper>
