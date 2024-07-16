@@ -5,12 +5,16 @@
     <div :style="style1" class="title" >
       <img  src="../../image/logo.png"  class="logo" alt="logo"/>
     </div>
+
     <div :style="style2" class="bigbox" alt="bigbox">
+
       <div class="login-form">
+
         <!--loginform是表单的数据 获取表单输入的信息
          prop对提交数据，必须与字段标识一致
         :rules表单验证规则
          ref获取form组件-->
+
         <div  class="loginbox">
 
           <el-form :model="loginForm" status-icon :rules="rules" ref="ruleForm" label-width="60px" label-suffix="" class="item">
@@ -42,7 +46,6 @@
 
 <script>
 import request from "@/utils/request";
-import {mapMutations} from "vuex";
 
 export default {
   data() {//只要输入就通过
@@ -65,8 +68,7 @@ export default {
     return {
       loginForm: {   //表单存储对象
         userName: '',
-        userPwd: '',
-        userRole:''
+        userPwd: ''
       },
       rules: {  //验证规则
         userName: [
@@ -89,21 +91,12 @@ export default {
     };
   },
   methods: {
-    ...mapMutations('user',['setUser']),
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           console.log('submit!');
           request.post('/user/login',this.loginForm).then(res=> {
             if(res.code === 'success') {
-              let obj ={
-                username: this.loginForm.userName,
-                userrole:res.data.userRole,
-                isLogin:true,
-                token:'hello success'
-              }
-              this.$store.commit('user/setUser', obj);
-             localStorage.setItem("user",JSON.stringify(obj));
               this.$notify.success("登录成功");
               this.$router.push('/back/map');
             }else{

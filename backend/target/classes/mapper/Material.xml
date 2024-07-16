@@ -20,6 +20,12 @@
         select materialtag from material
     </select>
 
+    <select id="listcountMaterial" resultType="java.util.Map">
+        SELECT materialtype,
+        COUNT(*) as count from material
+        GROUP BY materialtype
+    </select>
+
     <select id="SelectMaterials" resultType="com.example.backend.Entity.Material">
         select * from material
     </select>

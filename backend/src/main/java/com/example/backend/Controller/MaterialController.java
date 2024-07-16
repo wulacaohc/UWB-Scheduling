@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin            //解决跨域问题
 @RestController
@@ -57,4 +58,8 @@ public class MaterialController {
         return Result.success(materialService.addlabel());
     }
 
+    @GetMapping("/countMaterial")
+    public Result listcountMaterial(){
+        return Result.success( materialService.listcountMaterial());
+    }
 }

@@ -17,4 +17,5 @@ public interface MaterialService {
     void deleteMaterial(String id);
 
     Map<String,Integer> addlabel();
+    List<Map<String, Integer>> listcountMaterial();
 }

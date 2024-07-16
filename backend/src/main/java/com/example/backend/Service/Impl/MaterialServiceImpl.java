@@ -28,27 +28,35 @@ public class MaterialServiceImpl implements MaterialService {
     public List<String> listMaterialtag(){
         return materialMapper.listMaterialtag();
     }
+    @Override
+    public List<Map<String, Integer>> listcountMaterial(){return materialMapper.listcountMaterial();}
 
     public Map<String, Integer> addlabel() {
         Map<String, Integer> map = new HashMap<>();
         List<String> mtag = materialMapper.listMaterialtag();
-        int a1 = 0, a2 = 0, b1 = 0, b2 = 0; // 初始化计数器为0
+        int a = 0, b = 0, c = 0, d= 0,e= 0,f= 0; // 初始化计数器为0
         for (int i = 0; i < mtag.size(); i++) {
             String value = mtag.get(i);
             if (value.equals("A")) {
-                a1++; // 增加计数器
+                a++; // 增加计数器
             } else if (value.equals("B")) {
-                a2++; // 增加计数器
+                b++; // 增加计数器
             } else if (value.equals("C")) {
-                b1++; // 增加计数器
+                c++; // 增加计数器
             } else if (value.equals("D")) {
-                b2++; // 增加计数器
+                d++; // 增加计数器
+            } else if (value.equals("E")) {
+                e++;
+            } else if (value.equals("F")) {
+                f++;
             }
         }
-        map.put("A", a1);
-        map.put("B", a2);
-        map.put("C", b1);
-        map.put("D", b2);
+        map.put("A", a);
+        map.put("B", b);
+        map.put("C", c);
+        map.put("D", d);
+        map.put("E", e);
+        map.put("F", f);
         return map;
     }
 
@@ -72,4 +80,6 @@ public class MaterialServiceImpl implements MaterialService {
     public void deleteMaterial(String id) {
         materialMapper.deleteMaterial(id);
     }
+
+
 }

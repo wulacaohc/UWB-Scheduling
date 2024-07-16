@@ -5,6 +5,7 @@ import com.example.backend.Entity.Material;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface MaterialMapper {
@@ -16,4 +17,6 @@ public interface MaterialMapper {
     void updateMaterial(Material material);
     List<String> listMaterialtag();
     List<Material> listByCondition(MaterialPageRequest materialPageRequest);
+    List<Map<String,Integer>> listcountMaterial();
 }
+
