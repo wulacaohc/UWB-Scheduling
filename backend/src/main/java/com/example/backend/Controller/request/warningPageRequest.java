@@ -7,4 +7,5 @@ import lombok.Data;
 public class warningPageRequest extends BaseRequest {
     private Integer warningid;
     private String warningtype;
+    private String warninglevel;
 }
