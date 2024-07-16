@@ -13,20 +13,21 @@ import SecurityView from '../views/Security/security.vue'
 import TaskView from '../views/Task/task.vue'
 import CalenderView from '../views/staffManagement/StaffView.vue'
 import TaskPageView from "@/views/TaskPage/TaskPage.vue";
-
+import TaskPage2View from "@/views/TaskPage2/TaskPage2.vue"
 Vue.use(VueRouter)
   //  entrance与login同级路由，基础路由配置
 const routes = [
+  {
+    path:'/taskpage2',
+    name:'taskpage2',
+    component:TaskPage2View
+  },
   {
     path:'/taskpage',
     name:'taskpage',
     component:TaskPageView
   },
-  {
-    path: '/homepage',
-    name: 'homepage',
-    component:  HomePageView
-  },
+
   {
     path: '/',
     name: 'entrance',
@@ -37,53 +38,61 @@ const routes = [
     name: 'login',
     component: LoginView
   },
-  {
-    path:'/back',
-    name: 'back',
-    component:BackView,
-    children:[
       {
-        path:'staff',
-        name:'staff',
-        component: StaffView
-      },
-      {
-        path:'staCalender',
-        name:'staCalender',
-        component: CalenderView
-      },
-      {
-        path:'car',
-        name:'car',
-        component: CarView
-      },
-      {
-        path:'material',
-        name:'material',
-        component: MaterialView
-      },
-      {
-        path:'device',
-        name:'device',
-        component: DeviceView
-      },
-      {
-        path:'map',
-        name:'map',
-        component: MapView
-      },
-      {
-        path:'security',
-        name:'security',
-        component: SecurityView
-      },
-      {
-        path:'task',
-        name:'task',
-        component: TaskView
+        path:'/back',
+        name: 'back',
+        component:BackView,
+        children:[
+          {
+            path: 'homepage',
+            name: 'homepage',
+            component: HomePageView
+          },
+          {
+            path:'staff',
+            name:'staff',
+            component: StaffView
+          },
+          {
+            path:'staCalender',
+            name:'staCalender',
+            component: CalenderView
+          },
+          {
+            path:'car',
+            name:'car',
+            component: CarView
+          },
+          {
+            path:'material',
+            name:'material',
+            component: MaterialView
+          },
+          {
+            path:'device',
+            name:'device',
+            component: DeviceView
+          },
+          {
+            path:'map',
+            name:'map',
+            component: MapView
+          },
+          {
+            path:'security',
+            name:'security',
+            component: SecurityView
+          },
+          {
+            path:'task',
+            name:'task',
+            component: TaskView
+          }
+        ]
       }
-    ]
-  }
+
+
+
 ];
 
 const router = new VueRouter({

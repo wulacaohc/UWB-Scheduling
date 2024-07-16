@@ -13,52 +13,53 @@
           <el-main  class="main" style="margin-top: 2vh">
             <el-row :style="task1" class="gutter1">
             <el-row :gutter="20"  >
-              <el-col :span="4"><div class="grid-1 bg-purple">
+              <el-col :span="4"><dv-border-box-1 class="grid-1 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/QFZ.png" class="QFZ" alt="QFZ"/>
-              </div></el-col>
-              <el-col :span="15"><div class="grid-2 bg-purple">
+              </dv-border-box-1></el-col>
+
+              <el-col :span="15"><dv-border-box-1 class="grid-2 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/RZJZ.png" class="RZJZ" alt="RZJZ"/>
-              </div></el-col>
-              <el-col :span="3"><div class="grid-3 bg-purple">
+              </dv-border-box-1></el-col>
+              <el-col :span="3"><dv-border-box-1 class="grid-3 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/CCQ.png" class="CCQ" alt="CCQ"/>
-              </div></el-col>
-              <el-col :span="2"><div class="grid-4 bg-purple">
+              </dv-border-box-1></el-col>
+              <el-col :span="2"><dv-border-box-1 class="grid-4 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/sclq.png" class="sclq" alt="sclq"/>
-              </div></el-col>
+              </dv-border-box-1></el-col>
             </el-row>
             <el-row :gutter="20" style="margin-top: 7vh">
-              <el-col :span="8"><div class="grid2-1 bg-purple">
+              <el-col :span="8"><dv-border-box-1 class="grid2-1 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/ZSTHL.png" class="ZSTHL" alt="ZSTHL"/>
-              </div></el-col>
-              <el-col :span="8"><div class="grid2-2 bg-purple">
+              </dv-border-box-1></el-col>
+              <el-col :span="8"><dv-border-box-1 class="grid2-2 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/SMCXJ.png" class="SMCXJ" alt="SMCXJ"/>
-              </div></el-col>
-              <el-col :span="1"><div class="grid2-3 bg-purple">
+              </dv-border-box-1></el-col>
+              <el-col :span="1"><dv-border-box-1 class="grid2-3 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/BJJRL.png" class="BJJRL" alt="BJJRL"/>
-              </div></el-col>
-              <el-col :span="5"><div class="grid2-4 bg-purple">
+              </dv-border-box-1></el-col>
+              <el-col :span="5"><dv-border-box-1 class="grid2-4 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage2/RZCLQ.png" class="RZCLQ" alt="RZCLQ"/>
-              </div></el-col>
-              <el-col :span="1"><div class="grid2-5 bg-purple">
+              </dv-border-box-1></el-col>
+              <el-col :span="1"><dv-border-box-1 class="grid2-5 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/PLQ.png" class="PLQ" alt="PLQ"/>
-              </div></el-col>
+              </dv-border-box-1></el-col>
             </el-row>
             <el-row :gutter="20" style="margin-top: 7vh">
-              <el-col :span="4"><div class="grid3-1 bg-purple">
+              <el-col :span="4"><dv-border-box-1 class="grid3-1 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/HQXX1.png" class="HQXX1" alt="HQXX1"/>
-              </div></el-col>
-              <el-col :span="4"><div class="grid3-2 bg-purple">
+              </dv-border-box-1></el-col>
+              <el-col :span="4"><dv-border-box-1 class="grid3-2 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/HQXX2.png" class="HQXX2" alt="HQXX2"/>
-              </div></el-col>
-              <el-col :span="2"><div class="grid3-3 bg-purple">
+              </dv-border-box-1></el-col>
+              <el-col :span="2"><dv-border-box-1 class="grid3-3 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/QXCLQ.png" class="QXCLQ" alt="QXCLQ"/>
-              </div></el-col>
-              <el-col :span="2"><div class="grid3-4 bg-purple">
+              </dv-border-box-1></el-col>
+              <el-col :span="2"><dv-border-box-1 class="grid3-4 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/YHJJX.png" class="YHJJX" alt="YHJJX"/>
-              </div></el-col>
-              <el-col :span="2"><div class="grid3-5 bg-purple">
+              </dv-border-box-1></el-col>
+              <el-col :span="2"><dv-border-box-1 class="grid3-5 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/YHJQX.png" class="YHJQX" alt="YHJQX"/>
-              </div></el-col>
+              </dv-border-box-1></el-col>
               <el-col :span="3"><div class="grid3-6 bg-purple">
                 <img src="../../image/TaskPageImage/TaskPageImage1/cpbzq.png" class="cpbzq" alt="cpbzq"/>
               </div></el-col>
@@ -155,13 +156,11 @@ export default {
   .header-and-main{
     margin-top: 20px;
   }
-  .bg-purple {
-    background: #d3dce6;
-      }
+
   .gutter1{
           .grid-1{
-            width: 10vw;
-            height: 10vh;
+            width: 13vw;
+            height: 12vh;
             .QFZ{
               width: 10vw;
               height: 10vh;
@@ -390,7 +389,7 @@ export default {
             width:12vw;
             height: 10vh;
             margin-top: 22vh;
-            
+
               .qxx3{
                 width:12vw;
                 height: 10vh;

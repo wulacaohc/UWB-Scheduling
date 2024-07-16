@@ -103,13 +103,12 @@
     </el-container>
   </div>
 </template>
-<script>
+/<script>
 
 import {defineComponent} from "vue";
 import Aside from "@/components/Aside.vue";
 import Head from "@/components/Head.vue";
 import request from "@/utils/request";
-
 
 export default {
   components: {Head, Aside, request},
@@ -157,6 +156,7 @@ export default {
 </script>
 
 <style>
+
 .btn{
   padding-top:2vh;
   margin-bottom: 4vh;

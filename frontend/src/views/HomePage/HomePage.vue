@@ -10,17 +10,17 @@
 <!--    <dv-border-box-1>dv-border-box-1</dv-border-box-1>-->
     <div class="row" style="display: flex;justify-content: flex-end;width: 100%;"><el-button style="margin:10px;background-color: #4F4F4F;color: white;" @click="coming">进入后台</el-button></div>
     <div class="row1">
+
       <div class="cell">
         <dv-border-box-13>
           <RingChart />
         </dv-border-box-13>
       </div>
+
       <div class="cell">
-        <div class="parent-container" ref="borderBox">
-          <dv-border-box-8>
-            <mapView ref="mapView" />
-          </dv-border-box-8>
-        </div>
+        <dv-border-box-8>
+<!--            <mapView></mapView>-->
+        </dv-border-box-8>
       </div>
       <div class="cell">
         <dv-border-box-13><ScrollBoard /></dv-border-box-13>
@@ -47,10 +47,11 @@ import ScrollBoard from "@/components/ScrollBoard.vue";
 import pieChart from "@/components/pieChart.vue";
 import column from "@/components/column.vue"
 import number from "@/components/number.vue"
-import mapView from "@/components/mapchart.vue";
+import mapView from "@/views/Map/mapView.vue";
+import {defineComponent} from "vue";
 
 
-export default {
+export default defineComponent({
   components: {
     RingChart,
     ScrollBoard,
@@ -59,33 +60,12 @@ export default {
     number,
     mapView
   },
-  mounted() {
-    this.$nextTick(() => {
-      // 等待DOM更新完成后再调用 adjustMapSize
-      this.adjustMapSize();
-      // 监听窗口大小变化事件
-      window.addEventListener('resize', this.adjustMapSize);
-    });
-  },
-  methods: {
-    adjustMapSize() {
-      // 确保 mapView 组件已经挂载并且borderBox ref是存在的
-      const borderBox = this.$refs.borderBox;
-      if (borderBox && this.$refs.mapView) {
-        const width = borderBox.offsetWidth;
-        const height = borderBox.offsetHeight;
-        this.$refs.mapView.adjustSize(width, height);
-      }
-    },
-    coming() {
+  methods:{
+    coming(){
       this.$router.push("/back/map");
     }
-  },
-  beforeDestroy() {
-    // 移除窗口大小变化事件监听器
-    window.removeEventListener('resize', this.adjustMapSize);
-  },
-};
+  }
+})
 
 </script>
 
@@ -98,10 +78,6 @@ export default {
   width: 100%;
   height: 50px; /* 可以根据需要调整高度 */
   margin-top: 0; /* 确保装饰容器在顶部 */
-}
-.parent-container {
-  width:100%;
-  height:100%;
 }
 .row1{
   width: 100%;
@@ -117,6 +93,7 @@ export default {
     flex: 2;
   }
 }
+
 .row2{
   width: 100%;
   height:45%;
