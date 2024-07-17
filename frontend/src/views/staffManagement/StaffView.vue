@@ -74,6 +74,7 @@ export default {
     Head,
     Aside,
   },
+
   mounted() {
     //饼状图
     let pieDom1 = document.getElementById('pie1'); // 使用 getElementById 并传递 id 值
@@ -98,6 +99,7 @@ export default {
     //综合图
     this.initLinePieChart();
   },
+
   methods:{
     initLinePieChart() {
       this.$nextTick(()=>{

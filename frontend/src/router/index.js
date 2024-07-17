@@ -10,22 +10,16 @@ import DeviceView from '../views/DeviceManagement/Device.vue'
 import BackView from '../views/Login/back.vue'
 import MapView from '../views/Map/map.vue'
 import SecurityView from '../views/Security/security.vue'
-import TaskView from '../views/Task/task.vue'
+import TaskPageView from '../views/Task/TaskPage.vue'
 import CalenderView from '../views/staffManagement/StaffView.vue'
-import TaskPageView from "@/views/TaskPage/TaskPage.vue";
-import TaskPage2View from "@/views/TaskPage2/TaskPage2.vue"
+import TasklightView from "@/views/Task/tasklight.vue";
 Vue.use(VueRouter)
   //  entrance与login同级路由，基础路由配置
 const routes = [
   {
-    path:'/taskpage2',
-    name:'taskpage2',
-    component:TaskPage2View
-  },
-  {
-    path:'/taskpage',
-    name:'taskpage',
-    component:TaskPageView
+    path:'/tasklight',
+    name:'tasklight',
+    component:TasklightView
   },
 
   {
@@ -86,7 +80,7 @@ const routes = [
           {
             path:'task',
             name:'task',
-            component: TaskView
+            component: TaskPageView
           }
         ]
       }

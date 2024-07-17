@@ -51,7 +51,7 @@ public class SchedulerServiceImpl implements ScheduleService {
             String taskname = scheduler.ScheduleTask();
             if (taskname != null) {
                 System.out.println("调度的任务是: " + taskname);
-                MessageSender.sendMessage(taskname);
+//                MessageSender.sendMessage(taskname);
                 return taskname;
             } else {
                 System.out.println("没有任务可调度");
