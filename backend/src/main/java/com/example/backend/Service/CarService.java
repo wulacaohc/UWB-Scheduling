@@ -9,7 +9,6 @@ public interface CarService {
 
     List<Car> SelectCars();
     List<Integer> SelectcarStatus();
-    List<Integer> InsertcarStatus(Integer carStatus);
     Object page(CarPageRequest carPageRequest);
 
     void deleteCar(String id);

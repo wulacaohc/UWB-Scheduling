@@ -39,11 +39,6 @@ public class CarServiceImpl implements CarService {
         return carMapper.SelectcarStatus();
     }
     @Override
-    public List<Integer> InsertcarStatus(Integer carStatus){
-        carMapper.InsertcarStatus(carStatus);
-        return carMapper.InsertcarStatus(carStatus);
-    }
-    @Override
     public void updateCar(Car car) {
         carMapper.updateCar(car);
     }

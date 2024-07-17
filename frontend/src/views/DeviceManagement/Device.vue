@@ -16,7 +16,7 @@
               <el-button title="" style="margin-left:5px;background-color: #4F4F4F;color: white" ><i class="el-icon-search" @click="load"></i>  搜索</el-button>
               <el-button title="" style="margin-left:5px;background-color: #4F4F4F;color: white;" @click="reset" ><i class="el-icon-refresh" ></i>  重置</el-button>
               <!--添加按钮  -->
-              <el-button title="" style="margin-left:500px;background-color: #4F4F4F;color: white;" @click="addDevice" ><i class="el-icon-plus" ></i>  添加</el-button>
+              <el-button title="" style="margin-left:400px;background-color: #4F4F4F;color: white;" @click="addDevice" ><i class="el-icon-plus" ></i>  添加</el-button>
             </div>
             <el-card>
             <el-table :data="tableData"
@@ -30,6 +30,7 @@
               <el-table-column prop="materialId" label="加工物料(ID)"></el-table-column>
               <el-table-column  header-align="center" label="操作">
                 <template slot-scope="scope">
+                  <div style="display: flex; justify-content: center; align-items: center;">
                   <el-button
                     style="background-color:#4F4F4F;color: white"
                     size="mini"
@@ -39,6 +40,7 @@
                     size="mini"
                     @click="deleteStaff(scope.row.machineId)"
                   ><i class="el-icon-delete"/></el-button>
+                  </div>
                 </template>
               </el-table-column>
             </el-table>

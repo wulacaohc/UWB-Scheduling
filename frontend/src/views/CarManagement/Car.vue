@@ -19,27 +19,29 @@
               <el-button title="" style="margin-left:500px;background-color: #4F4F4F;color: white;" @click="addCar" ><i class="el-icon-plus" ></i>  添加</el-button>
             </div>
             <el-card>
-            <el-table :data="tableData"
-                      :default-sort="{prop:'employeeId',order:'ascending'}">
-              <el-table-column prop="carId" label="行车号" sortable default></el-table-column>
-              <el-table-column prop="labelId" label="标签号"></el-table-column>
-              <el-table-column prop="carStatus" label="行车状态"></el-table-column>
-              <el-table-column prop="employeeId" label="驾驶员工号"></el-table-column>
-              <el-table-column prop="carRemark" label="行车备注"></el-table-column>
-              <el-table-column  header-align="center" label="操作">
-                <template slot-scope="scope">
-                  <el-button
-                    style="background-color:#4F4F4F;color: white"
-                    size="mini"
-                    @click="handleEdit(scope.$index, scope.row)"><i class="el-icon-edit"/></el-button>
-                  <el-button
-                    style="background-color:#4F4F4F;color: white"
-                    size="mini"
-                    @click="deleteCar(scope.row.carId)"
-                  ><i class="el-icon-delete"/></el-button>
-                </template>
-              </el-table-column>
-            </el-table>
+              <el-table :data="tableData"
+                        :default-sort="{prop:'employeeId',order:'ascending'}">
+                <el-table-column prop="carId" label="行车号" sortable default></el-table-column>
+                <el-table-column prop="labelId" label="标签号"></el-table-column>
+                <el-table-column prop="carStatus" label="行车状态"></el-table-column>
+                <el-table-column prop="employeeId" label="驾驶员工号"></el-table-column>
+                <el-table-column prop="carRemark" label="行车备注"></el-table-column>
+                <el-table-column header-align="center" label="操作">
+                  <template slot-scope="scope">
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                      <el-button
+                        style="background-color:#4F4F4F;color: white"
+                        size="mini"
+                        @click="handleEdit(scope.$index, scope.row)"><i class="el-icon-edit"/></el-button>
+                      <el-button
+                        style="background-color:#4F4F4F;color: white"
+                        size="mini"
+                        @click="deleteCar(scope.row.carId)"
+                      ><i class="el-icon-delete"/></el-button>
+                    </div>
+                  </template>
+                </el-table-column>
+              </el-table>
             <!--分页-->
               <div style="padding:30px;text-align:center;">
                 <el-pagination

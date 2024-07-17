@@ -158,7 +158,7 @@ export default {
 <style>
 .box {
   width: 94%; /* 占满父容器宽度 */
-  height: 94%; /* 占满父容器高度 */
+  height: 90%; /* 占满父容器高度 */
   overflow: hidden;
   position: relative;
 }

@@ -45,11 +45,6 @@ public class CarController {
         List<Integer> carStatus = carService.SelectcarStatus();
         return Result.success(carStatus);
     }
-    @PostMapping("InsertcarStatus")
-    public Result InsertcarStatus(@RequestBody Integer carStatus){
-        carService.InsertcarStatus(carStatus);
-        return Result.success(carStatus);
-    }
     @GetMapping("/Page")
     public Result Page(CarPageRequest carPageRequest) {
         return Result.success(carService.page(carPageRequest));

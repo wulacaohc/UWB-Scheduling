@@ -60,11 +60,11 @@ export default {
         carStatus:""
       },
       rules:{
-        ID:[
-          {required: true,message:"请输入员工工号",trigger:"blur"},
+        carId:[
+          {required: true,message:"请输入行车号",trigger:"blur"},
           {min:0,max:99999,message: "长度在5个字符",trigger:"blur"},
         ],
-        labelID:[
+        labelId:[
           {required: true,message:"请输入员工标签号",trigger:"blur"},
           {min:0,max:9999,message: "长度在4个字符",trigger:"blur"},
         ],

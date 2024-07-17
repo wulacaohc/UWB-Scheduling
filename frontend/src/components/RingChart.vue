@@ -2,7 +2,7 @@
   <div class="box">
     <div class="box__header">车间员工概况</div>
     <!-- 将 config 作为数据属性绑定到 dv-active-ring-chart 组件 -->
-    <dv-active-ring-chart :config="config" style="width:300px;height:300px" />
+    <dv-active-ring-chart :config="config" style="width:300px;height:250px" />
   </div>
 </template>
 
@@ -48,6 +48,7 @@ export default {
 
 <style>
 .box{
+  margin-top:10px;
   padding:10px;
   height:90%;
 }

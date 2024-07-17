@@ -7,10 +7,6 @@
         insert into car(carid,labelid,carstatus,carremark,employeeid)
         values(#{carId},#{labelId},#{carStatus},#{carRemark},#{employeeId})
     </insert>
-    <insert id="InsertcarStatus">
-        insert into car(carstatus)
-        values(#{carStatus})
-    </insert>
 
     <update id="updateCar">
         update car set labelid = #{labelId},carstatus = #{carStatus},
@@ -24,7 +20,7 @@
         select * from car
     </select>
     <select id="SelectcarStatus" resultType="Integer">
-        select carstatus from car
+        select carstatus from car where carid= 2101
     </select>
     <select id="listByCondition" resultType="com.example.backend.Entity.Car">
         select * from car

@@ -1,6 +1,6 @@
 <template>
   <dv-full-screen-container>
-    <div style="height: 100%;background-color:#2c3e6c;overflow:auto">
+    <div style="height:100vh;width:100vw;background-color:#2c3e6c;overflow:auto">
     <div class="decoration-container">
       <dv-decoration-8 style="width:300px;height:50px;" />
       <dv-decoration-5 style="width:300px;height:40px;"></dv-decoration-5>

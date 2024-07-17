@@ -11,7 +11,6 @@ public interface CarMapper {
     List<Car> SelectCars();
     List<Car> listByCondition(CarPageRequest carPageRequest);
     List<Integer> SelectcarStatus();
-    List<Integer> InsertcarStatus(Integer car);
     void deleteCar(String id);
 
     void updateCar(Car car);

@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="box__header">车间设备概况</div>
-    <div style="height:300px" id="pie"></div>
+    <div style="height:220px" id="pie"></div>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ const option = {
       radius: [0, '30%'],
       label: {
         position: 'inner',
-        fontSize: 14
+        fontSize: 10
       },
       labelLine: {
         show: false
@@ -37,7 +37,7 @@ const option = {
       type: 'pie',
       radius: ['45%', '60%'],
       labelLine: {
-        length: 30
+        length: 15
       },
       label: {
         formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
@@ -48,7 +48,7 @@ const option = {
         rich: {
           a: {
             color: '#6E7079',
-            lineHeight: 22,
+            lineHeight: 20,
             align: 'center'
           },
           hr: {
@@ -61,7 +61,7 @@ const option = {
             color: '#4C5058',
             fontSize: 14,
             fontWeight: 'bold',
-            lineHeight: 33
+            lineHeight: 20
           },
           per: {
             color: '#fff',
@@ -94,7 +94,7 @@ export default {
         }
       })
       .catch(error => {
-        console.error('请求内层数据失败:', error);
+        console.error('请求外层数据失败:', error);
       });
 
     // 请求内层环形图数据
@@ -112,7 +112,7 @@ export default {
         }
       })
       .catch(error => {
-        console.error('请求外层数据失败:', error);
+        console.error('请求内层数据失败:', error);
       });
   },
 }
