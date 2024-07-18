@@ -5,7 +5,8 @@
     <div class="user" style="padding-right:1vw">
        <el-dropdown style="margin-top:1vh;">
           <span class="el-dropdown-link">
-             <img src="../image/img.png" alt="" style="height:5vh;">
+             <img src="../image/user.png" alt="" style="height:5vh;">
+<!--               <img src="../image/user.gif" alt="Animated Image" style="height:8vh">-->
           </span>
        <el-dropdown-menu slot="dropdown">
          <el-dropdown-item>

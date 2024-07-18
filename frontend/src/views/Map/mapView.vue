@@ -7,7 +7,7 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
-import {CSS2DRenderer,CSS2DObject} from "three/examples/jsm/renderers/CSS2DRenderer.js";
+import {CSS2DRenderer, CSS2DObject} from "three/examples/jsm/renderers/CSS2DRenderer.js";
 import * as TWEEN from 'tween.js';
 
 var scene = new THREE.Scene();
@@ -20,12 +20,16 @@ var tagRenderer = null;
 export default {
   data() {
     return {
-      // scene: null,
-      // camera: null,
-      // renderer: null,
-      // ambientLight: null,
-      // controls: null,
-      // tagRenderer:null,
+      zones: [
+        // {name: '热轧机区域', position: {x: -190, y: 0, z: -250}, size: {width: 500, height: 40}, color: 0xff0000},
+        {name: '熔铸炉区域', position: {x: 30, y: 0, z: -190}, size: {width: 100, height: 60}, color: 0xff0000},
+        // {name: '步进炉区域', position: {x: -70, y: 0, z: -190}, size: {width: 50, height: 90}, color: 0xff0000},
+        // {name: '双面铣洗机区域', position: {x: -280, y: 0, z: -180}, size: {width: 280, height: 40}, color: 0xff0000},
+        {name: '退火炉区域', position: {x: -370, y: 0, z:-60}, size: {width: 100, height: 100}, color: 0xff0000},
+        // {name: '冷轧机区域', position: {x: -190, y: 0, z: -60}, size: {width: 150, height: 100}, color: 0xff0000},
+        // {name: '清洗机区域', position: {x: -280, y: 0, z: 50}, size: {width: 280, height: 40}, color: 0xff0000},
+        // {name: '精剪机区域', position: {x: 50, y: 0, z: 50}, size: {width: 90, height: 40}, color: 0xff0000},
+      ],
       options: [
         {label: '熔铸炉 设备进度：80% 设备温度：2000℃', position: {x: 120, y: 0, z: -190}},
         {label: '热轧机 生产进度：70% 设备温度：500℃', position: {x: -300, y: 0, z: -220}},
@@ -135,6 +139,15 @@ export default {
               labelObject.position.set(item.position.x, item.position.y, item.position.z);
               this.scene.add(labelObject);
             }
+          });
+          // 加载模型后，添加平铺的区域
+          this.zones.forEach(zone => {
+            const geometry = new THREE.PlaneGeometry(zone.size.width, zone.size.height);
+            const material = new THREE.MeshBasicMaterial({color: zone.color, side: THREE.DoubleSide});
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.position.set(zone.position.x, 0, zone.position.z);
+            mesh.rotation.x = -Math.PI / 2;
+            scene.add(mesh);
           });
 
           let currentIndex = 0;

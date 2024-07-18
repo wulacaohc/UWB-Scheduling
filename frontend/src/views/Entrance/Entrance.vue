@@ -6,9 +6,9 @@
     </div>
 
     <div :style="style2" class="Entrancebigbox" >
-      <h1 class="logoName">铜杆车间调度系统平台</h1>
-      <h1 class="welcome">欢迎使用铜杆车间调度系统平台</h1>
-      <h2 class="target">致力于打造车间流程全可视化、人员调度更便捷的铜杆车间调度系统</h2>
+      <h1 class="logoName">铜板车间调度系统平台</h1>
+      <h1 class="welcome">欢迎使用铜板车间调度系统平台</h1>
+      <h2 class="target">致力于打造车间流程全可视化、人员调度更便捷的铜板车间调度系统</h2>
       <el-button id="button" @click="goToLogin"> 进入 </el-button>
     </div>
     <router-view></router-view>

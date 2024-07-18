@@ -14,6 +14,7 @@ import TaskView from '../views/Task/task.vue'
 import CalenderView from '../views/staffManagement/StaffView.vue'
 import TaskPageView from "@/views/TaskPage/TaskPage.vue";
 import TaskPage2View from "@/views/TaskPage2/TaskPage2.vue"
+import mapList from "@/views/Map/mapList.vue";
 Vue.use(VueRouter)
   //  entrance与login同级路由，基础路由配置
 const routes = [
@@ -43,6 +44,11 @@ const routes = [
         name: 'back',
         component:BackView,
         children:[
+          {
+            path:'mapList',
+            name:'mapList',
+            component:mapList
+          },
           {
             path: 'homepage',
             name: 'homepage',

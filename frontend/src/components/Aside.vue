@@ -3,12 +3,15 @@
     <div class="logo-container" slot="top">
       <img src="../image/logo.png" alt="">
     </div>
-    <span style="color:#E1FFFF;padding-left:1vw;font-size:16px;margin-bottom: 3vh">铜杆车间调度系统平台</span>
+    <span style="color:#E1FFFF;padding-left:1vw;font-size:16px;margin-bottom: 3vh">铜板车间调度系统平台</span>
      <el-menu default-active="activeIndex" class="el-menu-vertical-demo" width="500px"
             background-color="#363636" text-color="white" active-text-color="#ffd04b" router>
         <el-menu-item index="/back/map">
           <span style="text-decoration-color: white"><i class="el-icon-location" ></i>三维地图</span>
         </el-menu-item>
+       <el-menu-item index="/back/mapList">
+         <span style="text-decoration-color: white"><i class="el-icon-folder-opened" ></i>三维模型库</span>
+       </el-menu-item>
        <el-menu-item index="/back/staff">
          <span style="text-decoration-color: white"><i class="el-icon-files"></i>人员管理</span>
        </el-menu-item>

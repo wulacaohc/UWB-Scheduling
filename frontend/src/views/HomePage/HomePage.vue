@@ -1,13 +1,11 @@
 <template>
   <dv-full-screen-container>
-    <div style="height:100vh;width:100vw;background-color:#2c3e6c;overflow:auto">
+    <div style="height:100%;width:100%;background-color:#2c3e6c;overflow:auto">
     <div class="decoration-container">
       <dv-decoration-8 style="width:300px;height:50px;" />
       <dv-decoration-5 style="width:300px;height:40px;"></dv-decoration-5>
       <dv-decoration-8 :reverse="true" style="width:300px;height:50px;" />
     </div>
-<!--    <dv-loading>Loading...</dv-loading>-->
-<!--    <dv-border-box-1>dv-border-box-1</dv-border-box-1>-->
     <div class="row" style="display: flex;justify-content: flex-end;width: 100%;"><el-button style="margin:10px;background-color: #4F4F4F;color: white;" @click="coming">进入后台</el-button></div>
     <div class="row1">
       <div class="cell">
@@ -96,7 +94,7 @@ export default {
   justify-content: space-between; /* 左右对齐，中间平均分布 */
   align-items: flex-start; /* 垂直顶部对齐 */
   width: 100%;
-  height: 50px; /* 可以根据需要调整高度 */
+  height: 40px; /* 可以根据需要调整高度 */
   margin-top: 0; /* 确保装饰容器在顶部 */
 }
 .parent-container {
@@ -107,9 +105,9 @@ export default {
   width: 100%;
   height: 50%;
   display: flex;
-  margin-bottom: 5px;
+  margin: 5px;
   .cell {
-    padding: 1vw;
+    padding:5px;
     /* 旁边两列各占1份，中间列占2份 */
     flex: 1;
   };

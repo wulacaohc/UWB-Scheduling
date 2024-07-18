@@ -12,6 +12,7 @@
           <el-card style="margin-top:2vh;width:98%;height:98%;padding-right:2px;overflow:hidden;">
             <mapView/>
           </el-card>
+
         </el-main>
       </el-container>
     </el-container>
