@@ -7,7 +7,7 @@
       </el-aside>
        <el-container class="header-and-main">
          <el-header>
-            <Head/>
+            <Head 厂区生产流程图/>
          </el-header>
 
          <el-main  class="main" style="margin-top: 2vh">

@@ -13,9 +13,15 @@ import SecurityView from '../views/Security/security.vue'
 import TaskPageView from '../views/Task/TaskPage.vue'
 import CalenderView from '../views/staffManagement/StaffView.vue'
 import TasklightView from "@/views/Task/tasklight.vue";
+import TestView from "@/views/test.vue"
 Vue.use(VueRouter)
   //  entrance与login同级路由，基础路由配置
 const routes = [
+  {
+    path:'/test',
+    name:'test',
+    component:TestView
+  },
   {
     path:'/tasklight',
     name:'tasklight',

@@ -1,12 +1,14 @@
 
 <template>
   <FullScreenContainer>
+    <dv-border-box-7>
   <div class="box">
     <div class="box__header">生产进度</div>
     <div class="TaskPage2taskchart">
       <dv-capsule-chart :config="config" style="width:200px;height:500px" />
     </div>
   </div>
+    </dv-border-box-7>
   </FullScreenContainer>
 </template>
 

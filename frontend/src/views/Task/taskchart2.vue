@@ -75,7 +75,6 @@
         <el-table-column prop="runTime" label="任务时间"></el-table-column>
       </el-table>
 
-
       <div style="padding:1vh;text-align:center;">
         <el-pagination
           :page-size="10"
