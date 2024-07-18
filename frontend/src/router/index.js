@@ -10,22 +10,23 @@ import DeviceView from '../views/DeviceManagement/Device.vue'
 import BackView from '../views/Login/back.vue'
 import MapView from '../views/Map/map.vue'
 import SecurityView from '../views/Security/security.vue'
-import TaskView from '../views/Task/task.vue'
+import TaskPageView from '../views/Task/TaskPage.vue'
 import CalenderView from '../views/staffManagement/StaffView.vue'
-import TaskPageView from "@/views/TaskPage/TaskPage.vue";
-import TaskPage2View from "@/views/TaskPage2/TaskPage2.vue"
+import TasklightView from "@/views/Task/tasklight.vue";
+import TestView from "@/views/test.vue"
+import mapList from "@/views/Map/mapList.vue";
 Vue.use(VueRouter)
-  //  entrance与login同级路由，基础路由配置
+//  entrance与login同级路由，基础路由配置
 const routes = [
   {
-    path:'/taskpage2',
-    name:'taskpage2',
-    component:TaskPage2View
+    path:'/test',
+    name:'test',
+    component:TestView
   },
   {
-    path:'/taskpage',
-    name:'taskpage',
-    component:TaskPageView
+    path:'/tasklight',
+    name:'tasklight',
+    component:TasklightView
   },
 
   {
@@ -38,58 +39,63 @@ const routes = [
     name: 'login',
     component: LoginView
   },
+  {
+    path:'/back',
+    name: 'back',
+    component:BackView,
+    children:[
       {
-        path:'/back',
-        name: 'back',
-        component:BackView,
-        children:[
-          {
-            path: 'homepage',
-            name: 'homepage',
-            component: HomePageView
-          },
-          {
-            path:'staff',
-            name:'staff',
-            component: StaffView
-          },
-          {
-            path:'staCalender',
-            name:'staCalender',
-            component: CalenderView
-          },
-          {
-            path:'car',
-            name:'car',
-            component: CarView
-          },
-          {
-            path:'material',
-            name:'material',
-            component: MaterialView
-          },
-          {
-            path:'device',
-            name:'device',
-            component: DeviceView
-          },
-          {
-            path:'map',
-            name:'map',
-            component: MapView
-          },
-          {
-            path:'security',
-            name:'security',
-            component: SecurityView
-          },
-          {
-            path:'task',
-            name:'task',
-            component: TaskView
-          }
-        ]
+        path: 'homepage',
+        name: 'homepage',
+        component: HomePageView
+      },
+      {
+        path:'staff',
+        name:'staff',
+        component: StaffView
+      },
+      {
+        path:'mapList',
+        name:'mapList',
+        component: mapList
+      },
+      {
+        path:'staCalender',
+        name:'staCalender',
+        component: CalenderView
+      },
+      {
+        path:'car',
+        name:'car',
+        component: CarView
+      },
+      {
+        path:'material',
+        name:'material',
+        component: MaterialView
+      },
+      {
+        path:'device',
+        name:'device',
+        component: DeviceView
+      },
+      {
+        path:'map',
+        name:'map',
+        component: MapView
+      },
+      {
+        path:'security',
+        name:'security',
+        component: SecurityView
+      },
+      {
+        path:'task',
+        name:'task',
+        component: TaskPageView
       }
+    ]
+  }
 
 
 
