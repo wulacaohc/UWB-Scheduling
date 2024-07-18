@@ -1,10 +1,12 @@
 <template>
   <div class="box">
     <div class="box__header">车间物料概况</div>
+
   <div class="column">
   <dv-conical-column-chart :config="config" style="width:90%;height:200px;" class="columnchart" />
   </div>
   </div>
+
 </template>
 
 <script>
