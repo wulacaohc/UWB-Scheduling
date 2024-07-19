@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div :style="minHeight" class="websit">
 
     <el-container style="height:100vh;width:100vw;border:1px ;solid:#eee">
       <el-aside width="200px" style="background-color: #363636">
@@ -70,9 +70,24 @@ export default {
       LCTSC:{
         position: 'absolute',
         zIndex: 3,
-      }
+      },
+      minHeight: 0
     }
+  },
+  mounted() {
+    this.minHeight = document.documentElement.clientHeight - 0;
+    this.marginLeft = (document.documentElement.clientWidth - 1920) / 2;
+    const that = this;
+    window.onresize = function() {
+      that.minHeight = document.documentElement.clientHeight - 0;
+      that.marginLeft = (document.documentElement.clientWidth - 1920) / 2;
+    };
   }
+
+
+
+
+
 }
 
 </script>
@@ -106,6 +121,8 @@ export default {
   height:17vh;
   weight:10vw;
 }
-
+.websit{
+    overflow: visible;
+}
 
 </style>

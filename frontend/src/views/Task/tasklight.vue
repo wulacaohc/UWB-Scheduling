@@ -186,6 +186,7 @@ export default {
           console.error('获取数据时出错：', error);
           this.loading = false;  // 出错时也设置为 false
         });
+
     },
     drawGlowAreas() {
       const canvas = document.getElementById('glowAreasCanvas');

@@ -9,13 +9,13 @@
           <Head/>
         </el-header>
         <el-main class="main" style="margin-top: 4vh">
-            <div style="background-color:#2c3e6c;overflow:auto">
-              <div class="row">
-                <div class="col">
-                  <dv-border-box-11 title="冷轧机" style="">
-                    <maplist1 />
-                  </dv-border-box-11>
-                </div>
+          <div style="background-color:#2c3e6c;overflow:auto">
+            <div class="row">
+              <div class="col">
+                <dv-border-box-11 title="冷轧机" style="">
+                  <maplist1 />
+                </dv-border-box-11>
+              </div>
               <div class="col">
                 <dv-border-box-11 title="步进炉"> <maplist2/></dv-border-box-11>
               </div>
@@ -23,17 +23,17 @@
                 <dv-border-box-11 title="精剪机"><maplist3/></dv-border-box-11>
               </div>
             </div>
-              <div class="row">
-                <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
-                </div>
-                <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
-                </div>
-                <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
-                </div>
+            <div class="row">
+              <div class="col1">
+                <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
               </div>
+              <div class="col1">
+                <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
+              </div>
+              <div class="col1">
+                <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
+              </div>
+            </div>
             <div class="row">
               <div class="col">
                 <dv-border-box-11 title="热轧机"> <maplist4 /></dv-border-box-11>
@@ -45,17 +45,17 @@
                 <dv-border-box-11 title="清洗机"><maplist6/></dv-border-box-11>
               </div>
             </div>
-              <div class="row">
-                <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
-                </div>
-                <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
-                </div>
-                <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
-                </div>
+            <div class="row">
+              <div class="col1">
+                <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
               </div>
+              <div class="col1">
+                <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
+              </div>
+              <div class="col1">
+                <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
+              </div>
+            </div>
             <div class="row">
               <div class="col">
                 <dv-border-box-11 title="退火炉"><maplist7 /></dv-border-box-11>
@@ -67,21 +67,21 @@
                 <dv-border-box-11 title="叉车"><maplist9/></dv-border-box-11>
               </div>
             </div>
-              <div class="row">
-                <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
-                </div>
-                <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
-                </div>
-                <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
-                </div>
+            <div class="row">
+              <div class="col1">
+                <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
               </div>
-              <div class="row" style="margin-top: 4vh">
-                <dv-decoration-10 style="width:90%;height:5px;" />
+              <div class="col1">
+                <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
+              </div>
+              <div class="col1">
+                <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
               </div>
             </div>
+            <div class="row" style="margin-top: 4vh">
+              <dv-decoration-10 style="width:90%;height:5px;" />
+            </div>
+          </div>
         </el-main>
       </el-container>
     </el-container>
