@@ -35,6 +35,9 @@
         <dv-border-box-12><number /></dv-border-box-12>
       </div>
     </div>
+      <div class="row3">
+
+      </div>
     </div>
   </dv-full-screen-container>
 </template>
@@ -124,5 +127,9 @@ export default {
     padding:5px;
     flex: 1;
   }
+}
+.row3{
+  width: 100%;
+  height:10%;
 }
 </style>

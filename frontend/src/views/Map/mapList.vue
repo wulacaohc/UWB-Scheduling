@@ -25,13 +25,13 @@
             </div>
               <div class="row">
                 <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:5vw">引用</dv-decoration-11>
+                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
                 </div>
                 <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:5vw">引用</dv-decoration-11>
+                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
                 </div>
                 <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:5vw">引用</dv-decoration-11>
+                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
                 </div>
               </div>
             <div class="row">
@@ -47,13 +47,13 @@
             </div>
               <div class="row">
                 <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:5vw">引用</dv-decoration-11>
+                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
                 </div>
                 <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:5vw">引用</dv-decoration-11>
+                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
                 </div>
                 <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:5vw">引用</dv-decoration-11>
+                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
                 </div>
               </div>
             <div class="row">
@@ -69,13 +69,13 @@
             </div>
               <div class="row">
                 <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:5vw">引用</dv-decoration-11>
+                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
                 </div>
                 <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:5vw">引用</dv-decoration-11>
+                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
                 </div>
                 <div class="col1">
-                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:5vw">引用</dv-decoration-11>
+                  <dv-decoration-11 style="width:200px;height:60px;color:#fff;margin-left:8vw">引用</dv-decoration-11>
                 </div>
               </div>
               <div class="row" style="margin-top: 4vh">

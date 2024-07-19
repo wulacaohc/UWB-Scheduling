@@ -2,21 +2,31 @@
   <div class="login" >
     <div class="overlay"></div>
 
-
     <div :style="style1" class="title" >
-      <img  src="../../image/logo.png" style="text-align: center" class="logo" alt="logo"/>
+      <img  src="../../image/logo.png"  class="logo" alt="logo"/>
     </div>
+
     <div :style="style2" class="bigbox" alt="bigbox">
 
       <div class="login-form">
+
+        <!--loginform是表单的数据 获取表单输入的信息
+         prop对提交数据，必须与字段标识一致
+        :rules表单验证规则
+         ref获取form组件-->
+
         <div  class="loginbox">
+
           <el-form :model="loginForm" status-icon :rules="rules" ref="ruleForm" label-width="60px" label-suffix="" class="item">
+
             <el-form-item label="用户名"  prop="username" style="padding:1vh">
               <el-input  type="text" v-model="loginForm.userName" autocomplete="off"></el-input>
             </el-form-item>
+
             <el-form-item class="passwordbox"label="密码" prop="password" style="padding:0.5vh">
               <el-input type="password" v-model="loginForm.userPwd" autocomplete="off"></el-input>
             </el-form-item>
+
             <el-form-item>
               <el-button @click="submitForm('ruleForm')">登录</el-button>
               <el-button @click="resetForm('ruleForm')">重置</el-button>
@@ -25,6 +35,8 @@
           </el-form>
         </div>
       </div>
+
+
     </div>
 
 
@@ -132,7 +144,7 @@ export default {
 
 .logo{
   margin-top: 190px;
-  padding-left: 93vh;
+  padding-left:45vw;
   width: 10%;
   height: 10%;
 }
@@ -146,7 +158,7 @@ export default {
   opacity: 1;
   background: rgba(66,153, 181, 0.8);
   border: 3px solid rgba(50, 185, 196, 1);
-  text-align: center;
 }
+
 
 </style>

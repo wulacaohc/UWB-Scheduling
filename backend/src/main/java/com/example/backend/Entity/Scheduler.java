@@ -1,7 +1,5 @@
 package com.example.backend.Entity;
 import lombok.Data;
-import org.springframework.util.StopWatch;
-
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.locks.ReentrantLock;
@@ -20,12 +18,12 @@ public class Scheduler{
     public Scheduler(Map<String, Integer> materialCounter, Integer isCarIdle){
         this.materialCounter = materialCounter;
         this.isCarIdle=isCarIdle;
-        runTimeMap.put("A",8);
+        runTimeMap.put("A",10);
         runTimeMap.put("B",10);
-        runTimeMap.put("C",14);
-        runTimeMap.put("D",17);
-        runTimeMap.put("E",5);
-        runTimeMap.put("F",7);
+        runTimeMap.put("C",10);
+        runTimeMap.put("D",10);
+        runTimeMap.put("E",10);
+        runTimeMap.put("F",10);
         for (Map.Entry<String, Integer> entry : runTimeMap.entrySet()) {
             String taskName = entry.getKey();
             long currentTime = System.currentTimeMillis(); // 每次添加任务前获取当前时间

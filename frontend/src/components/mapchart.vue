@@ -83,7 +83,6 @@ export default {
             new THREE.Vector3(35, 0, 75),
             new THREE.Vector3(35, 0, -25),
             new THREE.Vector3(-160, 0, -25),
-
           ];
 
           let currentIndex = 0;
@@ -157,7 +156,7 @@ export default {
 
 <style>
 .box {
-  width: 94%; /* 占满父容器宽度 */
+  width: 100%; /* 占满父容器宽度 */
   height: 90%; /* 占满父容器高度 */
   overflow: hidden;
   position: relative;

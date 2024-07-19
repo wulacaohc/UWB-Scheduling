@@ -12,10 +12,10 @@ import * as TWEEN from 'tween.js';
 
 var scene = new THREE.Scene();
 var camera = null;
-var renderer = null;
-var ambientLight = null;
-var controls = null;
-var tagRenderer = null;
+// var renderer = null;
+// var ambientLight = null;
+// var controls = null;
+// var tagRenderer = null;
 
 export default {
   data() {
@@ -31,16 +31,16 @@ export default {
         // {name: '精剪机区域', position: {x: 50, y: 0, z: 50}, size: {width: 90, height: 40}, color: 0xff0000},
       ],
       options: [
-        {label: '熔铸炉 设备进度：80% 设备温度：2000℃', position: {x: 120, y: 0, z: -190}},
+        {label: '熔铸炉 设备进度：80% 设备温度：2000℃', position: {x: 300, y: 0, z: -190}},
         {label: '热轧机 生产进度：70% 设备温度：500℃', position: {x: -300, y: 0, z: -220}},
-        {label: '步进炉 生产进度：60% 设备温度：1000℃', position: {x: 50, y: 0, z: -120}},
-        {label: '双面铣洗机 生产进度：30%', position: {x: -250, y: 0, z: -120}},
-        {label: '退火炉 生产进度：50% 设备温度：500℃', position: {x: -380, y: 0, z: 30}},
-        {label: '冷轧机 生产进度：50%', position: {x: -180, y: 0, z: 30}},
-        {label: '停车区', position: {x: -10, y: 0, z: 30}},
-        {label: '成品区', position: {x: 100, y: 0, z: 30}},
-        {label: '清洗机 生产进度：30%', position: {x: -250, y: 0, z: 160}},
-        {label: '精剪机 生产进度：60%', position: {x: 50, y: 0, z: 160}},
+        {label: '步进炉 生产进度：60% 设备温度：1000℃', position: {x: 200, y: 0, z: -30}},
+        {label: '双面铣洗机 生产进度：30%', position: {x: -250, y: 0, z: -30}},
+        {label: '退火炉 生产进度：50% 设备温度：500℃', position: {x: -330, y: 0, z: 130}},
+        {label: '冷轧机 生产进度：50%', position: {x: -70, y: 0, z: 130}},
+        {label: '停车区', position: {x: 200, y: 0, z: 130}},
+        {label: '成品区', position: {x: 400, y: 0, z: 130}},
+        {label: '清洗机 生产进度：30%', position: {x: -250, y: 0, z: 300}},
+        {label: '精剪机 生产进度：60%', position: {x: 250, y: 0, z: 300}},
       ],
     };
   },
