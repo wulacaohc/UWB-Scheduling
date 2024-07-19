@@ -12,11 +12,8 @@
 
          <el-main  class="main" style="margin-top: 2vh">
          <el-row :gutter="20">
-           <dv-border-box-9 :style="mappage" class="bigmap">
-             <img src="../../image/TaskPageImage_2/bigmap.png" class="bigmapImage" alt="bigmapImage"/>
-           </dv-border-box-9>
            <dv-border-box-9 :style="LCTSC" class="bigmap">
-             <img src="../../image/TaskPageImage_2/LCTSC.png" class="bigmapImage" alt="bigmapImage"/>
+             <img src="../../image/TaskPageImage_2/bacground01.png" class="bigmapImage" alt="bigmapImage"/>
            </dv-border-box-9>
 
            <div :style="tasklight">
@@ -33,7 +30,6 @@
          <div class="otherbox">
            <taskchar2 />
          </div>
-
 
            </el-main>
     </el-container>
@@ -74,20 +70,6 @@ export default {
       minHeight: 0
     }
   },
-  mounted() {
-    this.minHeight = document.documentElement.clientHeight - 0;
-    this.marginLeft = (document.documentElement.clientWidth - 1920) / 2;
-    const that = this;
-    window.onresize = function() {
-      that.minHeight = document.documentElement.clientHeight - 0;
-      that.marginLeft = (document.documentElement.clientWidth - 1920) / 2;
-    };
-  }
-
-
-
-
-
 }
 
 </script>
